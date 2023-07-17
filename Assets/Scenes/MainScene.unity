@@ -571,7 +571,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c03df81a64c2d846ae3ae9be238565b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  mosterTransform: {fileID: 0}
+  monster: {fileID: 0}
+  speed: 0
 --- !u!114 &1817705335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 742080307}
   _attackRange: 1
-  _speed: 0
+  _speed: 2
 --- !u!1 &2075141583
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,5 +641,5 @@ MonoBehaviour:
   _characterObject: {fileID: 742080307}
   _camera: {fileID: 519420028}
   _basicAttackTime: 3
-  _runSpeed: 2
+  _runSpeed: 5
   _moveDust: {fileID: 1800407102}
