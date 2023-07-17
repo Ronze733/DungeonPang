@@ -14,7 +14,7 @@ public class MonsterWalk : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        mosterTransform.position = Vector2.MoveTowards(mosterTransform.position, monster.player.position, Time.deltaTime * monster.speed);
+         //mosterTransform.position = Vector2.MoveTowards(mosterTransform.position, monster._player.position, Time.deltaTime * monster._speed);
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
