@@ -18,9 +18,6 @@ public class PMovement : MonoBehaviour
     [SerializeField]
     private GameObject _camera;
 
-    [SerializeField]
-    private float _basicAttackTime = 0.5f;
-
     public float _runSpeed = 2.0f;
     public ParticleSystem _moveDust;
 
@@ -68,7 +65,6 @@ public class PMovement : MonoBehaviour
             return;
         }
         Move();
-        BasicAttack();
 
         /*
         if(_damageTime > 2)
@@ -80,15 +76,11 @@ public class PMovement : MonoBehaviour
         _damageTime += Time.deltaTime;
     }
 
-    private void BasicAttack()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (time > _basicAttackTime)
-        {
-            time = 0.0f;
-            _character.Animator.SetTrigger("Slash");
-        }
-        time += Time.deltaTime;
+        print("trigger on");
     }
+
 
     private void FixedUpdate()
     {

@@ -399,7 +399,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 375063816128229675, guid: 0bc29c5a95eb6224a81e0a319ae8b1fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 920127183}
   m_SourcePrefab: {fileID: 100100000, guid: 0bc29c5a95eb6224a81e0a319ae8b1fe, type: 3}
 --- !u!4 &920127177 stripped
 Transform:
@@ -417,6 +420,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3ae32e0225a084cb86c0c15c790dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &920127183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742080307}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.123919316, y: 0.16804491, z: 1}
+  m_Center: {x: 0.0006216722, y: 0.084374264, z: 0}
 --- !u!198 &1800407102 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 944805460, guid: 0bc29c5a95eb6224a81e0a319ae8b1fe, type: 3}
@@ -433,9 +457,8 @@ GameObject:
   - component: {fileID: 1817705331}
   - component: {fileID: 1817705330}
   - component: {fileID: 1817705332}
-  - component: {fileID: 1817705334}
-  - component: {fileID: 1817705333}
   - component: {fileID: 1817705335}
+  - component: {fileID: 1817705336}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -503,7 +526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817705329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.01, y: -0.16, z: 0}
+  m_LocalPosition: {x: -5.01, y: -0.269, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -531,48 +554,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &1817705333
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817705329}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1817705334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817705329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c03df81a64c2d846ae3ae9be238565b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mosterTransform: {fileID: 0}
-  monster: {fileID: 0}
-  speed: 0
 --- !u!114 &1817705335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +569,27 @@ MonoBehaviour:
   _player: {fileID: 742080307}
   _attackRange: 1
   _speed: 2
+--- !u!65 &1817705336
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817705329}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.15, y: 0.16, z: 0.2}
+  m_Center: {x: 0.005, y: 0.08, z: 0}
 --- !u!1 &2075141583
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +641,6 @@ MonoBehaviour:
   _character: {fileID: 920127182}
   _characterObject: {fileID: 742080307}
   _camera: {fileID: 519420028}
-  _basicAttackTime: 3
   _runSpeed: 5
   _moveDust: {fileID: 1800407102}
 --- !u!114 &2075141586
