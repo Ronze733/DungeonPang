@@ -8,9 +8,6 @@ using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState
 public class PMovement : MonoBehaviour
 {
     [SerializeField]
-    private Animator _animator;
-
-    [SerializeField]
     private float _lerpTime;
 
     [SerializeField]
@@ -29,6 +26,8 @@ public class PMovement : MonoBehaviour
 
     private Transform _transform;
 
+    private HealthPoint _healthPoint;
+
 
     private Vector3 _cameraPosition;
     private Vector3 _position;
@@ -36,8 +35,9 @@ public class PMovement : MonoBehaviour
     private void Awake()
     {
         _transform = _characterObject.transform;
-        _animator = GetComponent<Animator>();
         _position = _transform.position;
+
+        _healthPoint = GetComponent<HealthPoint>();
 
         Vector3 cameraPos;
         cameraPos.z = -600f;
@@ -56,11 +56,28 @@ public class PMovement : MonoBehaviour
 
     private float time = Mathf.Infinity;
 
+    private float _damageTime = Mathf.Infinity;
+
     // Update is called once per frame
     private void Update()
     {
+        if (_healthPoint.HP == 0)
+        {
+            _character.Animator.SetBool("Idle", false);
+            _character.Animator.SetBool("Dead", true);
+            return;
+        }
         Move();
         BasicAttack();
+
+        /*
+        if(_damageTime > 2)
+        {
+            _healthPoint.Hit(5, _damageTime);
+            _damageTime = 0f;
+        }
+        */
+        _damageTime += Time.deltaTime;
     }
 
     private void BasicAttack()

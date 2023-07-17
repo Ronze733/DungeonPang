@@ -380,6 +380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character1
       objectReference: {fileID: 0}
+    - target: {fileID: 375063816128229675, guid: 0bc29c5a95eb6224a81e0a319ae8b1fe, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 375063817183276821, guid: 0bc29c5a95eb6224a81e0a319ae8b1fe, type: 3}
       propertyPath: m_labelHash
       value: 0.00000040954276
@@ -400,11 +404,6 @@ PrefabInstance:
 --- !u!4 &920127177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 375063816128229652, guid: 0bc29c5a95eb6224a81e0a319ae8b1fe, type: 3}
-  m_PrefabInstance: {fileID: 920127176}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &920127179 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 375063816128229654, guid: 0bc29c5a95eb6224a81e0a319ae8b1fe, type: 3}
   m_PrefabInstance: {fileID: 920127176}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &920127182 stripped
@@ -597,6 +596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2075141584}
   - component: {fileID: 2075141585}
+  - component: {fileID: 2075141586}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -633,7 +633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6d60c6b68d8aa4396aaa02ec376f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 920127179}
   _lerpTime: 3
   _character: {fileID: 920127182}
   _characterObject: {fileID: 742080307}
@@ -641,3 +640,19 @@ MonoBehaviour:
   _basicAttackTime: 3
   _runSpeed: 2
   _moveDust: {fileID: 1800407102}
+--- !u!114 &2075141586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075141583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83798d776081c7e47aaedd8ed7780ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealthPoint: 50
+  _healthPoint: 0
+  _character: {fileID: 742080307}
+  _damageTime: 1
