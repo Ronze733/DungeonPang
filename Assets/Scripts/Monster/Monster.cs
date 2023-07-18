@@ -9,20 +9,36 @@ public class Monster : MonoBehaviour
     [SerializeField]
     private GameObject _player;
 
+ 
+    private HealthPoint _heathPoint;
+
 
     [SerializeField]
     private float _attackRange = 1f;
 
     public float _speed;
     private Vector2 _dir;
-    void Start()
+
+    private bool _isDead = false;
+
+    private void Start()
     {
-       
+       _heathPoint = this.GetComponent<HealthPoint>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(_isDead) return;
+
+        if (_heathPoint.HP == 0 && !_isDead)
+        {
+            Dead();
+            _isDead = true;
+            StartCoroutine(DestroyAfterDelay(2f));
+            return;
+        }
+
         _dir = _player.transform.position - this.transform.position;
         if (_player != null)
         {
@@ -47,6 +63,14 @@ public class Monster : MonoBehaviour
 
         this.gameObject.GetComponent<Animator>().SetFloat("Speed", speed);
 
+        
+
+
+    }
+
+    private void Dead()
+    {
+        this.gameObject.GetComponent<Animator>().SetTrigger("Dead");
     }
 
     private void Turn(int direction)
@@ -57,5 +81,10 @@ public class Monster : MonoBehaviour
 
         gameObject.transform.localScale = scale;
 
+    }
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 }
