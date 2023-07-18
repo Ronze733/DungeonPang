@@ -9718,6 +9718,7 @@ GameObject:
   - component: {fileID: 1817705330}
   - component: {fileID: 1817705332}
   - component: {fileID: 1817705335}
+  - component: {fileID: 1817705339}
   - component: {fileID: 1817705338}
   - component: {fileID: 1817705336}
   - component: {fileID: 1817705337}
@@ -9916,6 +9917,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &1817705339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817705329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83798d776081c7e47aaedd8ed7780ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealthPoint: 5
+  _healthPoint: 0
+  _character: {fileID: 1817705329}
 --- !u!213 &1870633099
 Sprite:
   m_ObjectHideFlags: 0
@@ -12042,6 +12058,7 @@ GameObject:
   - component: {fileID: 2075141584}
   - component: {fileID: 2075141585}
   - component: {fileID: 2075141586}
+  - component: {fileID: 2075141589}
   - component: {fileID: 2075141588}
   - component: {fileID: 2075141587}
   m_Layer: 3
@@ -12104,7 +12121,6 @@ MonoBehaviour:
   _maxHealthPoint: 4
   _healthPoint: 0
   _character: {fileID: 742080307}
-  _damageTime: 1
 --- !u!61 &2075141587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12177,6 +12193,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2075141589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075141583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6519ca125bbcf524895d6031e0951a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particle: {fileID: 0}
 --- !u!213 &2077825220
 Sprite:
   m_ObjectHideFlags: 0
