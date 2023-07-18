@@ -8021,7 +8021,7 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
---- !u!1001 &1561986391
+--- !u!1001 &1575540887
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8029,6 +8029,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 751045265439015834, guid: 8cbf419780a73854a96c5a8358cedc79, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 2075141583}
     - target: {fileID: 1240057541454391970, guid: 8cbf419780a73854a96c5a8358cedc79, type: 3}
       propertyPath: m_Name
       value: Goblin
