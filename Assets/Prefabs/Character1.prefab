@@ -4856,14 +4856,14 @@ Transform:
   m_GameObject: {fileID: 375063816128229675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 375063817183276820}
   - {fileID: 944805458}
   - {fileID: 1262023189883695929}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &375063816128229648
 MonoBehaviour:
@@ -4879,7 +4879,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Body: {fileID: 375063817183276823}
   Animator: {fileID: 375063816128229654}
-  CharacterController: {fileID: 0}
 --- !u!114 &375063816128229649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4893,15 +4892,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpriteCollection: {fileID: 11400000, guid: 490ae32d2288bb44c860168dd03613ca, type: 2}
-  Head: Human
-  Body: Human
-  Hair: Hair1
-  Armor: PirateCostume
-  Helmet: PirateBandana
-  Weapon: Saber
+  Head: Elf#FFFFFF/0:0:0
+  Body: El#FFFFFF/0:0:0
+  Hair: Hair2#FFFFFF/0:0:0
+  Armor: ElfTunic#FFFFFF/0:0:0
+  Helmet: 
+  Weapon: BattleBow#FFFFFF/0:0:0
   Shield: 
-  Cape: 
-  Back: 
+  Cape: Cape#FFFFFF/0:0:0
+  Back: LeatherQuiver#FFFFFF/0:0:0
   SpriteLibrary: {fileID: 375063817183276822}
 --- !u!95 &375063816128229654
 Animator:
@@ -4999,7 +4998,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 4723107735738678597, guid: 629546c43494c7a46a0bb0e05c431ce3, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5007,7 +5006,7 @@ SpriteRenderer:
   m_Size: {x: 0.4, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &375063817183276822
@@ -5023,7 +5022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 11400000, guid: bf3fa914a179a034585acbf2e4d4afe6, type: 2}
+  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!114 &375063817183276821
 MonoBehaviour:
   m_ObjectHideFlags: 0
