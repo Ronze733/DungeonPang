@@ -26,12 +26,9 @@ public class HealthPoint : MonoBehaviour
         _healthPoint = _maxHealthPoint;
     }
 
-    public void Hit(float damage, float damageTime)
+    public void Hit(float damage)
     {
-        if(damageTime > _damageTime)
-        {
-            _character.GetComponent<Animator>().SetTrigger("Hit");
-            _healthPoint = Mathf.Clamp(_healthPoint - damage, 0, _maxHealthPoint);
-        }
+        _character.GetComponent<Animator>().SetTrigger("Hit");
+        _healthPoint = Mathf.Clamp(_healthPoint - damage, 0, _maxHealthPoint);
     }
 }

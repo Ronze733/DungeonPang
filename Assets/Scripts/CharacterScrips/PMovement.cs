@@ -8,6 +8,9 @@ using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState
 public class PMovement : MonoBehaviour
 {
     [SerializeField]
+    private bool _isInvincibility = false;
+
+    [SerializeField]
     private float _lerpTime;
 
     [SerializeField]
@@ -17,6 +20,10 @@ public class PMovement : MonoBehaviour
 
     [SerializeField]
     private GameObject _camera;
+
+    [SerializeField]
+    [Range(0.8f, 1.2f)]
+    private float _jumpRange;
 
     public float _runSpeed = 2.0f;
     public ParticleSystem _moveDust;
@@ -28,6 +35,12 @@ public class PMovement : MonoBehaviour
 
     private Vector3 _cameraPosition;
     private Vector3 _position;
+
+    [SerializeField]
+    private float _invicibilityTime = 0.5f;
+    private float _invicibility = 0f;
+
+    // private bool _isMoving = false;
 
     private void Awake()
     {
@@ -51,20 +64,17 @@ public class PMovement : MonoBehaviour
         _character.SetState(AnimationState.Idle);
     }
 
-    private float time = Mathf.Infinity;
-
-    private float _damageTime = Mathf.Infinity;
-
     // Update is called once per frame
     private void Update()
     {
         if (_healthPoint.HP == 0)
         {
             _character.Animator.SetBool("Idle", false);
+            _character.Animator.SetBool("Running", false);
             _character.Animator.SetBool("Dead", true);
             return;
         }
-        Move();
+
 
         /*
         if(_damageTime > 2)
@@ -73,14 +83,75 @@ public class PMovement : MonoBehaviour
             _damageTime = 0f;
         }
         */
-        _damageTime += Time.deltaTime;
+
+        _invicibility += Time.deltaTime;
+        Move();
+
+        if (_invicibility >= _invicibilityTime)
+            _isInvincibility = false;
     }
 
+
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Monster" && !_isInvincibility)
+        {
+            Vector2 collider = this.gameObject.GetComponent<Collider2D>().offset;
+            Damage monster = collision.GetComponent<Damage>();
+            _healthPoint.Hit(monster.DamageValue);
+            _isInvincibility = true;
+
+            Vector3 _dir = _position - collision.transform.position;
+
+            if (_dir.x < 0)
+            {
+                _position.x -= _jumpRange;
+                collider.x -= _jumpRange;
+            }
+            else
+            {
+                _position.x += _jumpRange;
+                collider.x += _jumpRange;
+            }
+
+            /*
+            if(_dir.y < 0)
+            {
+                _position.y += _jumpRange;
+                collider.y += _jumpRange;
+            }
+            else
+            {
+                _position.y -= _jumpRange;
+                collider.y -= _jumpRange;
+            }
+            */
+
+            _transform.position = _position;
+            this.gameObject.GetComponent<Collider2D>().offset = collider;
+            _invicibility = 0.0f;
+        }
+    }
+
+    /*
     private void OnTriggerStay2D(Collider2D collision)
     {
-        print("trigger on");
+        if (_healthPoint.HP != 0)
+        {
+            if (collision.gameObject.tag == "Monster")
+            {
+                if (_damageTime > _damageTimeTerm)
+                {
+                    Damage monster = collision.gameObject.GetComponent<Damage>();
+                    _healthPoint.Hit(monster.DamageValue);
+                    _damageTime = 0;
+                }
+            }
+        }
     }
-
+    */
 
     private void FixedUpdate()
     {
@@ -89,24 +160,29 @@ public class PMovement : MonoBehaviour
 
     private void Move()
     {
+        Vector2 collider = this.gameObject.GetComponent<Collider2D>().offset;
         _position = _transform.position;
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
+            collider.y += _runSpeed * Time.deltaTime;
             _position.y += _runSpeed * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
+            collider.y -= _runSpeed * Time.deltaTime;
             _position.y -= _runSpeed * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            collider.x -= _runSpeed * Time.deltaTime;
             _position.x -= _runSpeed * Time.deltaTime;
             Turn(-1);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
+            collider.x += _runSpeed * Time.deltaTime;
             _position.x += _runSpeed * Time.deltaTime;
             Turn(1);
         }
@@ -117,12 +193,15 @@ public class PMovement : MonoBehaviour
             _character.Animator.SetBool("Running", false);
             if (_moveDust.isPlaying)
                 _moveDust.Pause();
+            // _isMoving = false;
         }
         else
         {
             _character.Animator.SetBool("Idle", false);
             _character.Animator.SetBool("Running", true);
             _transform.position = _position;
+            // _isMoving = true;
+            this.gameObject.GetComponent<Collider2D>().offset = collider;
             if (!_moveDust.isPlaying)
                 _moveDust.Play();
         }
