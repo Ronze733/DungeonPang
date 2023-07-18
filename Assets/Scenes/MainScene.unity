@@ -8032,7 +8032,7 @@ PrefabInstance:
     - target: {fileID: 751045265439015834, guid: 8cbf419780a73854a96c5a8358cedc79, type: 3}
       propertyPath: _player
       value: 
-      objectReference: {fileID: 2075141583}
+      objectReference: {fileID: 742080307}
     - target: {fileID: 1240057541454391970, guid: 8cbf419780a73854a96c5a8358cedc79, type: 3}
       propertyPath: m_Name
       value: Goblin
@@ -8080,6 +8080,14 @@ PrefabInstance:
     - target: {fileID: 4024234725363775695, guid: 8cbf419780a73854a96c5a8358cedc79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290715567740687280, guid: 8cbf419780a73854a96c5a8358cedc79, type: 3}
+      propertyPath: m_Size.x
+      value: 0.13246924
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290715567740687280, guid: 8cbf419780a73854a96c5a8358cedc79, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0051819794
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11992,7 +12000,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020466387, y: 0.5935253}
+  m_Offset: {x: -0.03436804, y: 0.5935253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12003,7 +12011,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0900522, y: 1.1882908}
+  m_Size: {x: 1.0646977, y: 1.1882908}
   m_EdgeRadius: 0
 --- !u!50 &2075141588
 Rigidbody2D:
