@@ -3377,10 +3377,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 742080307}
-    - target: {fileID: 751045265439015834, guid: 8cbf419780a73854a96c5a8358cedc79, type: 3}
-      propertyPath: _attackRange
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1240057541454391970, guid: 8cbf419780a73854a96c5a8358cedc79, type: 3}
       propertyPath: m_Name
       value: Goblin
@@ -11902,6 +11898,7 @@ GameObject:
   - component: {fileID: 2075141585}
   - component: {fileID: 2075141586}
   - component: {fileID: 2075141589}
+  - component: {fileID: 2075141590}
   - component: {fileID: 2075141588}
   - component: {fileID: 2075141587}
   m_Layer: 3
@@ -12049,6 +12046,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particle: {fileID: 0}
+--- !u!114 &2075141590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075141583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6ec2592fe347d41b7de41f4772281b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapons:
+  - {fileID: 11400000, guid: 70a7d5c936754954a9a6d32f5f6602a0, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!213 &2077825220
 Sprite:
   m_ObjectHideFlags: 0
