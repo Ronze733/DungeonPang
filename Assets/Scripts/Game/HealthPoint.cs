@@ -18,9 +18,6 @@ public class HealthPoint : MonoBehaviour
         set { _healthPoint = value; }
     }
 
-    [SerializeField]
-    private float _damageTime;
-
     private void Start()
     {
         _healthPoint = _maxHealthPoint;
