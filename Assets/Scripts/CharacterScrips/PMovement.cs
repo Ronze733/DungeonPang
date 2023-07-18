@@ -99,6 +99,7 @@ public class PMovement : MonoBehaviour
         if(collision.tag == "Monster" && !_isInvincibility)
         {
             Vector2 collider = this.gameObject.GetComponent<Collider2D>().offset;
+            if (collision.GetComponent<HealthPoint>().HP == 0) return;
             Damage monster = collision.GetComponent<Damage>();
             _healthPoint.Hit(monster.DamageValue);
             _isInvincibility = true;
@@ -133,6 +134,8 @@ public class PMovement : MonoBehaviour
             this.gameObject.GetComponent<Collider2D>().offset = collider;
             _invicibility = 0.0f;
         }
+
+
     }
 
     /*
