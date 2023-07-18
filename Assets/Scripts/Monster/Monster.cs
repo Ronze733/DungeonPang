@@ -24,6 +24,7 @@ public class Monster : MonoBehaviour
     private void Start()
     {
        _heathPoint = this.GetComponent<HealthPoint>();
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
