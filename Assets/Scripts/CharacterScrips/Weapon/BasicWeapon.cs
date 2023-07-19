@@ -12,6 +12,7 @@ public class BasicWeapon : MonoBehaviour
     [SerializeField]
     [Range(1, 6)]
     private int _level = 1;
+    private int _beforeLevel = 1;
     public int Level
     {
         get { return _level; }
@@ -19,7 +20,7 @@ public class BasicWeapon : MonoBehaviour
     }
 
     [SerializeField]
-    private float _shootTerm;
+    private float _shootTerm = 2f;
     private float _shootTime = Mathf.Infinity;
 
 
@@ -27,11 +28,16 @@ public class BasicWeapon : MonoBehaviour
     private void Awake()
     {
         _character = GameObject.FindGameObjectWithTag("Player");
+        _projectile.GetComponent<Arrow>().Damage = 3;
+        _projectile.GetComponent<Arrow>().Speed = 5;
+        _shootTerm = 2f;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (_character.GetComponent<HealthPoint>().HP == 0) return;
+
         int projectileNum = 0;
         switch (_level)
         {
@@ -42,10 +48,14 @@ public class BasicWeapon : MonoBehaviour
                 projectileNum = 2;
                 break;
             case 3:
-            case 4: 
                 projectileNum = 4;
                 break;
-            case 5: 
+            case 4:
+                projectileNum = 4;
+                break;
+            case 5:
+                projectileNum = 4;
+                break;
             case 6:
                 projectileNum = 8;
                 break;
@@ -53,6 +63,7 @@ public class BasicWeapon : MonoBehaviour
                 projectileNum = 8;
                 break;
         }
+        WeaponLevelUp(_beforeLevel);
 
         float direction = _character.GetComponent<PMovement>().Direction() > 0 ? 1 : -1;
 
@@ -77,5 +88,15 @@ public class BasicWeapon : MonoBehaviour
         }
 
         _shootTime += Time.deltaTime;
+    }
+
+    private void WeaponLevelUp(int beforeLevel)
+    {
+        if (beforeLevel == _level) return;
+
+        _beforeLevel = _level;
+        _projectile.GetComponent<Arrow>().Damage += 2;
+        _projectile.GetComponent<Arrow>().Speed *= 1.2f;
+        _shootTerm *= 0.8f;
     }
 }

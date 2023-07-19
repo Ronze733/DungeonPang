@@ -5,7 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     [SerializeField]
-    private float _damage;
+    private float _damage = 3f;
     public float Damage
     {
         get { return _damage; }
@@ -13,7 +13,7 @@ public class Arrow : MonoBehaviour
     }
 
     [SerializeField]
-    private float _speed;
+    private float _speed = 5f;
     public float Speed
     {
         get { return _speed; }
