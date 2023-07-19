@@ -211,13 +211,18 @@ public class PMovement : MonoBehaviour
 
     }
 
-    private void Turn(int direction)
+    public void Turn(int direction)
     {
         var scale = _character.transform.localScale;
 
         scale.x = Mathf.Sign(direction) * Mathf.Abs(scale.x);
 
         _character.transform.localScale = scale;
+    }
+
+    public float Direction()
+    {
+        return _character.transform.localScale.x;
     }
 
     /*
