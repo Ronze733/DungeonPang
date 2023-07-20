@@ -4,19 +4,25 @@ using System.Linq;
 using System.Threading;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     public Transform[] _spawnPoint;
 
+    [SerializeField]
+    private GameObject _character = null;
+
     float _timer;
 
-    void Awake()
+    private void Awake()
     {
         _spawnPoint = GetComponentsInChildren<Transform>();
           
     }
-        void Update()
+    private void Update()
     {
+        Vector3 pos = _character.transform.position;
+        this.transform.position = pos;
+
         _timer += Time.deltaTime;
 
         if (_timer > 0.2f)
@@ -26,7 +32,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-    void Spawn()
+    private void Spawn()
     {
         GameObject monster = GameManager._instance._pool.Get(Random.Range(0,1));
         monster.transform.position = _spawnPoint[Random.Range(1,_spawnPoint.Length)].position ;

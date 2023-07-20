@@ -4056,6 +4056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: []
+  _character: {fileID: 742080307}
 --- !u!4 &704221002
 Transform:
   m_ObjectHideFlags: 0
