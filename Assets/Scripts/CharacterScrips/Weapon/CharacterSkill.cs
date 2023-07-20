@@ -20,6 +20,20 @@ public class CharacterSkill : MonoBehaviour
     [SerializeField]
     private float _ECoolTerm = 30.0f;
     private float _ECoolTime = 0f;
+    [SerializeField]
+    private float _ETime = 1.5f;
+    private float _EDuration = 0f;
+    private bool _isE = false;
+
+    private float _baseSpeed;
+
+    private PMovement _movement;
+
+    private void Start()
+    {
+        _movement = this.GetComponent<PMovement>();
+        _baseSpeed = _movement._runSpeed;
+    }
 
     private void Update()
     {
@@ -51,10 +65,24 @@ public class CharacterSkill : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             // TODO 스피드 증가 함수 제작
+            if(_ECoolTime == 0)
+            {
+                _isE = true;
+                _movement._runSpeed = _baseSpeed * 2f;
+            }
         }
 
-
-
+        if(_isE)
+        {
+            _EDuration += Time.deltaTime;
+            if(_EDuration > _ETime)
+            {
+                _isE = false;
+                _movement._runSpeed = _baseSpeed;
+                _EDuration = 0f;
+                _ECoolTime += Time.deltaTime;
+            }
+        }
 
         if(_QCoolTime != 0)
             _QCoolTime += Time.deltaTime;

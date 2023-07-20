@@ -32,4 +32,9 @@ public class HealthPoint : MonoBehaviour
         _character.GetComponent<Animator>().SetTrigger("Hit");
         _healthPoint = Mathf.Clamp(_healthPoint - damage, 0, _maxHealthPoint);
     }
+
+    public void MonsterHit(float damage)
+    {
+        _healthPoint = Mathf.Clamp(_healthPoint - damage, 0, _maxHealthPoint);
+    }
 }

@@ -4842,7 +4842,7 @@ GameObject:
   - component: {fileID: 375063816128229654}
   m_Layer: 3
   m_Name: Character1
-  m_TagString: Player
+  m_TagString: RealPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5053,7 +5053,7 @@ GameObject:
   - component: {fileID: 4517535660502480307}
   m_Layer: 3
   m_Name: BasicWeapon
-  m_TagString: Untagged
+  m_TagString: BasicWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5087,7 +5087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 6153361299878860223, guid: 70c93802f1a2b9848b1418ac42a6da7e, type: 3}
   _level: 1
-  _shootTerm: 0
+  _shootTerm: 2
 --- !u!1 &2601759255912755464
 GameObject:
   m_ObjectHideFlags: 0
@@ -14870,6 +14870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4316924951547538877}
+  - component: {fileID: 5203659810599446636}
   m_Layer: 3
   m_Name: ShootPoint
   m_TagString: Untagged
@@ -14892,3 +14893,15 @@ Transform:
   m_Father: {fileID: 375063816128229652}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5203659810599446636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685737058513607126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6d63a943fc73a4cbda2ecc757d23ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
