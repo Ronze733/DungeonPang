@@ -1,27 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public float _spawnTime;
-    public float _curTime;
     public Transform[] _spawnPoint;
-    public GameObject _monster;
+
+    float _timer;
+
+    void Awake()
+    {
+        _spawnPoint = GetComponentsInChildren<Transform>();   
+    }
 
     void Update()
     {
-        if (_curTime >= _spawnTime)
+        _timer += Time.deltaTime;
+
+        if (_timer > 0.2f)
         {
-            int x = Random.Range(0, _spawnPoint.Length);
-          SpawnMonster(x);
+            Spawn();
+            _timer = 0;
         }
-        _curTime += Time.deltaTime;
     }
 
-    public void SpawnMonster(int ranNum)
+    void Spawn()
     {
-        _curTime = 0;
-        Instantiate(_monster, _spawnPoint[ranNum].position, Quaternion.identity);
+        GameObject monster = GameManager._instance._pool.Get(Random.Range(0,1));
+        monster.transform.position = _spawnPoint[Random.Range(1,_spawnPoint.Length)].position ;
+
     }
-}
+}    
+
