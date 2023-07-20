@@ -30,7 +30,7 @@ public class PoolManager : MonoBehaviour
 
         foreach (GameObject item in _pools[index])
         {
-            if (!item.activeSelf)
+            if (item && !item.activeSelf)
             {
         // ... 발견하면 select 변수에 할당
                 select = item;
@@ -40,7 +40,7 @@ public class PoolManager : MonoBehaviour
         }
 
         // ... 못 찾았으면?
-        if (!select)
+        if (!select && _prefabs[index] != null)
         {
             // ... 새롭게 생성하고 select 변수에 할당
             select = Instantiate(_prefabs[index], transform);

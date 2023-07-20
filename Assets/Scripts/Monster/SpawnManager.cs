@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
 
@@ -11,10 +12,10 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Awake()
     {
-        _spawnPoint = GetComponentsInChildren<Transform>();   
+        _spawnPoint = GetComponentsInChildren<Transform>();
+          
     }
-
-    void Update()
+        void Update()
     {
         _timer += Time.deltaTime;
 
