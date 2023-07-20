@@ -13,20 +13,35 @@ public class Thunder : WeaponSetting
 
     private float _aliveTime = 0.5f;
 
+    private int _beforeLevel = 1;
+
+    private bool _beforeCan = false;
+
     private void Start()
     {
         _coolTerm = 1.0f;
         _thunderProjectile.GetComponent<ThunderProjectile>().Damage = 5f;
+        _beforeLevel = _weaponLevel;
+        _beforeCan = _canWeapon;
     }
 
 
     // Update is called once per frame
     private void Update()
     {
-        LevelCheck(_weaponLevel);
+        if(_beforeLevel != _weaponLevel)
+            LevelCheck(_weaponLevel);
+
+        if(_canWeapon && !_beforeCan)
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterWeapons>()._weaponsLength < 6)
+            {
+                int len = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterWeapons>()._weaponsLength;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterWeapons>().Weapons[len] = this.gameObject;
+                _beforeCan = _canWeapon;
+            }
 
         if (_canWeapon)
-        {            
+        {     
             if (_coolTime > _coolTerm)
             {
                 AttackTunder(_weaponLevel);
@@ -62,8 +77,8 @@ public class Thunder : WeaponSetting
             Vector3 pos = _character.transform.position;
 
             Vector3 dir = Vector3.zero;
-            float x = Random.Range(-10.0f, 10.0f);
-            float y = Random.Range(-10.0f, 10.0f);
+            float x = Random.Range(-8.0f, 8.0f);
+            float y = Random.Range(-8.0f, 8.0f);
             dir.x = x;
             dir.y = y;
 
@@ -75,7 +90,34 @@ public class Thunder : WeaponSetting
 
     private void LevelCheck(int weaponLevel)
     {
-        
+        switch (weaponLevel)
+        {
+            case 1:
+                _coolTerm *= 0.9f;
+                _thunderProjectile.GetComponent<ThunderProjectile>().Damage += 3;
+                break;
+            case 2:
+                _coolTerm *= 0.9f;
+                _thunderProjectile.GetComponent<ThunderProjectile>().Damage += 3;
+                break;
+            case 3:
+                _coolTerm *= 0.9f;
+                _thunderProjectile.GetComponent<ThunderProjectile>().Damage += 3;
+                break;
+            case 4:
+                _coolTerm *= 0.9f;
+                _thunderProjectile.GetComponent<ThunderProjectile>().Damage += 3;
+                break;
+            case 5:
+                _coolTerm *= 0.9f;
+                _thunderProjectile.GetComponent<ThunderProjectile>().Damage += 3;
+                break;
+            case 6:
+                _coolTerm *= 0.9f;
+                _thunderProjectile.GetComponent<ThunderProjectile>().Damage += 3;
+                break;
+        }
+        _beforeLevel = _weaponLevel;
     }
 
 }
