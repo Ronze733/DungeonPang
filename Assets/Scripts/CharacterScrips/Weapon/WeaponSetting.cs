@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponSetting : MonoBehaviour
+public abstract class WeaponSetting : MonoBehaviour
 {
     [SerializeField]
     protected bool _canWeapon = false;
