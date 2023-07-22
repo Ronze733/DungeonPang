@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _coin: {fileID: 8985733607201693227, guid: 9506b794347289a4eb52877b742fdea0, type: 3}
-  _Exp: {fileID: 5858615880521141505, guid: 494c33e99f9d0124abc49f4799dcefdc, type: 3}
+  _exp: {fileID: 5858615880521141505, guid: 494c33e99f9d0124abc49f4799dcefdc, type: 3}
   _attackRange: 0
   _speed: 2
 --- !u!114 &7439052229865820706

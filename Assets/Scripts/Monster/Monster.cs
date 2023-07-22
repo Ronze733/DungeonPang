@@ -16,7 +16,7 @@ public class Monster : MonoBehaviour
     private GameObject _coin;
 
     [SerializeField]
-    private GameObject _Exp;
+    private GameObject _exp;
 
 
     [SerializeField]
@@ -44,7 +44,7 @@ public class Monster : MonoBehaviour
             _isDead = true;
             StartCoroutine(DestroyAfterDelay(2f));
             Instantiate(_coin, transform.position, Quaternion.identity);
-            Instantiate(_Exp, transform.position, Quaternion.identity);
+            Instantiate(_exp, transform.position, Quaternion.identity);
             return;
         }
 

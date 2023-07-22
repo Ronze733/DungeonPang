@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2093354287552872821}
   - component: {fileID: 2045549303570891456}
   - component: {fileID: 5785728639466842786}
+  - component: {fileID: -7278935553529316599}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -122,7 +123,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -134,3 +135,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7278935553529316599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8985733607201693227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee56582d700fec45a4b398acf828017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopDuration: 1
