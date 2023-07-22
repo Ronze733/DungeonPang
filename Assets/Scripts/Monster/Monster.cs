@@ -12,6 +12,9 @@ public class Monster : MonoBehaviour
 
     private HealthPoint _heathPoint;
 
+    [SerializeField]
+    private GameObject coin;
+
 
     [SerializeField]
     private float _attackRange = 1f;
@@ -37,7 +40,7 @@ public class Monster : MonoBehaviour
             Dead();
             _isDead = true;
             StartCoroutine(DestroyAfterDelay(2f));
-            DropItems();
+            Instantiate(coin, transform.position, Quaternion.identity);
             return;
         }
 
