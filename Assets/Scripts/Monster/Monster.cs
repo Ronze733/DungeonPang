@@ -13,7 +13,10 @@ public class Monster : MonoBehaviour
     private HealthPoint _heathPoint;
 
     [SerializeField]
-    private GameObject coin;
+    private GameObject _coin;
+
+    [SerializeField]
+    private GameObject _Exp;
 
 
     [SerializeField]
@@ -40,7 +43,8 @@ public class Monster : MonoBehaviour
             Dead();
             _isDead = true;
             StartCoroutine(DestroyAfterDelay(2f));
-            Instantiate(coin, transform.position, Quaternion.identity);
+            Instantiate(_coin, transform.position, Quaternion.identity);
+            Instantiate(_Exp, transform.position, Quaternion.identity);
             return;
         }
 
@@ -93,10 +97,6 @@ public class Monster : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void DropItems()
-    {
-
-    }
 }
 
 
