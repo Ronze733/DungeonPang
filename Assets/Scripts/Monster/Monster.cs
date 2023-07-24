@@ -9,8 +9,14 @@ public class Monster : MonoBehaviour
     [SerializeField]
     private GameObject _player;
 
- 
+
     private HealthPoint _heathPoint;
+
+    [SerializeField]
+    private GameObject _coin;
+
+    [SerializeField]
+    private GameObject _exp;
 
 
     [SerializeField]
@@ -23,20 +29,22 @@ public class Monster : MonoBehaviour
 
     private void Start()
     {
-       _heathPoint = this.GetComponent<HealthPoint>();
+        _heathPoint = this.GetComponent<HealthPoint>();
         _player = GameObject.FindGameObjectWithTag("RealPlayer");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_isDead) return;
+        if (_isDead) return;
 
         if (_heathPoint.HP == 0 && !_isDead)
         {
             Dead();
             _isDead = true;
             StartCoroutine(DestroyAfterDelay(2f));
+            Instantiate(_coin, transform.position, Quaternion.identity);
+            Instantiate(_exp, transform.position, Quaternion.identity);
             return;
         }
 
@@ -64,7 +72,7 @@ public class Monster : MonoBehaviour
 
         this.gameObject.GetComponent<Animator>().SetFloat("Speed", speed);
 
-        
+
 
 
     }
@@ -88,4 +96,9 @@ public class Monster : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
+
 }
+
+
+
+
