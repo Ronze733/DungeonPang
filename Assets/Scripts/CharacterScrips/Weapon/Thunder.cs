@@ -17,19 +17,23 @@ public class Thunder : WeaponSetting
 
     private bool _beforeCan = false;
 
+    private GameObject _character;
+
     private void Start()
     {
         _coolTerm = 1.0f;
         _thunderProjectile.GetComponent<ThunderProjectile>().Damage = 5f;
         _beforeLevel = _weaponLevel;
         _beforeCan = _canWeapon;
+        _character = GameObject.FindGameObjectWithTag("Player");
     }
 
 
     // Update is called once per frame
     private void Update()
     {
-        if(_beforeLevel != _weaponLevel)
+        if (_character.GetComponent<HealthPoint>().HP == 0) return;
+        if (_beforeLevel != _weaponLevel)
             LevelCheck(_weaponLevel);
 
         if(_canWeapon && !_beforeCan)
