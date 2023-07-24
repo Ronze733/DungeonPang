@@ -8,7 +8,26 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager _instance;
+    private static GameManager _instance;
+
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<GameManager>();
+                if(_instance == null)
+                {
+                    GameObject manager = new GameObject("GameManager");
+                    _instance = manager.AddComponent<GameManager>();
+                }
+            }
+
+            return _instance;
+        }
+    }
+
     [SerializeField]
     private PoolManager _pool;
     public PoolManager Pool

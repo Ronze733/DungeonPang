@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boomerang : WeaponSetting
+public class Star : WeaponSetting
 {
     [SerializeField]
-    private GameObject _boomerangProjectile;
+    private GameObject _StarProjectile;
 
 
     // Start is called before the first frame update
