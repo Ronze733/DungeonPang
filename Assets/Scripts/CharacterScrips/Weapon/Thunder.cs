@@ -17,6 +17,7 @@ public class Thunder : WeaponSetting
 
     private bool _beforeCan = false;
 
+
     private void Start()
     {
         _coolTerm = 1.0f;
@@ -29,7 +30,8 @@ public class Thunder : WeaponSetting
     // Update is called once per frame
     private void Update()
     {
-        if(_beforeLevel != _weaponLevel)
+        if (_characterOut.GetComponent<HealthPoint>().HP == 0) return;
+        if (_beforeLevel != _weaponLevel)
             LevelCheck(_weaponLevel);
 
         if(_canWeapon && !_beforeCan)

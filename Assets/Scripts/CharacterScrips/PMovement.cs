@@ -46,6 +46,8 @@ public class PMovement : MonoBehaviour
     {
         _transform = _characterObject.transform;
         _position = _transform.position;
+        _position.x = 0.0f;
+        _position.y = 0.0f;
 
         _healthPoint = GetComponent<HealthPoint>();
 

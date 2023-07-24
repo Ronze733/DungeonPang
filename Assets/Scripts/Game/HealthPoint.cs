@@ -9,6 +9,7 @@ public class HealthPoint : MonoBehaviour
     public float MaxHP
     { 
         get { return _maxHealthPoint; }
+        set { _maxHealthPoint = value; }
     }
     [SerializeField]
     private float _healthPoint;

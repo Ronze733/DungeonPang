@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Spawn()
     {
-        GameObject monster = GameManager._instance._pool.Get(Random.Range(0, GetMonsterSpawnRange()));
+        GameObject monster = GameManager.Instance.Pool.Get(Random.Range(0, GetMonsterSpawnRange()));
         monster.transform.position = _spawnPoint[Random.Range(1, _spawnPoint.Length)].position;
     }
 
