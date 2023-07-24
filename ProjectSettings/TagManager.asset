@@ -8,6 +8,8 @@ TagManager:
   - Weapon
   - RealPlayer
   - BasicWeapon
+  - Coin
+  - Exp
   layers:
   - Default
   - TransparentFX
