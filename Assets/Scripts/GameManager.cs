@@ -34,7 +34,10 @@ public class GameManager : MonoBehaviour
     { get { return _pool; } }
 
     private GameObject _player;
-    // public Player _player;
+    public GameObject Player
+    {
+        get { return _player; }
+    }
 
     private float _gameTime = 0.0f;
 
