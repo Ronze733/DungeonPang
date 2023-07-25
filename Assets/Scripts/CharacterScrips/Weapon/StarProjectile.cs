@@ -13,6 +13,36 @@ public class StarProjectile : MonoBehaviour
         set { _damage = value; }
     }
 
+    [SerializeField]
+    private float _setSpeed;
+
+    public float SetSpeed
+    {
+        get { return _setSpeed; }
+        set { _setSpeed = value; }
+    }
+
+    private float _speed = 3f;
+
+    public float Speed
+    {
+        get { return _speed; }
+        set { _speed = value; }
+    }
+
+    private void Awake()
+    {
+        if(_setSpeed != 0f)
+            _speed = _setSpeed;
+    }
+
+    private void Update()
+    {
+        Transform star = this.transform;
+        star.Translate(star.right * _speed * Time.deltaTime, Space.World);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Monster")

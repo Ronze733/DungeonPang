@@ -19,4 +19,9 @@ public class Star : WeaponSetting
     {
         if (_characterOut.GetComponent<HealthPoint>().HP == 0) return;
     }
+
+    private void CheckLevel(int level)
+    {
+        
+    }
 }

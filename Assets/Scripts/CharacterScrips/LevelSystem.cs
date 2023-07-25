@@ -8,25 +8,32 @@ public class LevelSystem : MonoBehaviour
     private float _exp = 0;
     public float Exp
     { get { return _exp; } }
-    [SerializeField]
-    private float _maxExp = 10;
+
+    private float _maxExp = 5;
     public float MaxExp
     { get { return _maxExp; } }
 
     private int _level = 1;
 
+    private int _coin = 0;
+    public int Coin
+    { get { return _coin; } }
+
     private HealthPoint _healthPoint = null;
+
+    private CharacterWeapons _characterWeapons = null;
 
     private void Awake()
     {
         _healthPoint = this.GetComponent<HealthPoint>();
+        _characterWeapons = this.GetComponent<CharacterWeapons>();
     }
 
     // Start is called before the first frame update
     private void Start()
     {
         _exp = 0;
-        _maxExp = 10;
+        _maxExp = 5;
         _level = 1;
     }
 
@@ -36,7 +43,7 @@ public class LevelSystem : MonoBehaviour
         if(_exp >= _maxExp)
         {
             _exp -= _maxExp;
-            _maxExp *= 1.5f;
+            _maxExp += 3f;
             _level += 1;
             SelectWeapon();
             _healthPoint.MaxHP += 10;
@@ -57,6 +64,12 @@ public class LevelSystem : MonoBehaviour
             _exp += exp;
 
             Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.tag == "Coin")
+        {
+            float coin = collision.GetComponent<Coin>().Value;
+            _coin += (int)coin;
         }
     }
 }
