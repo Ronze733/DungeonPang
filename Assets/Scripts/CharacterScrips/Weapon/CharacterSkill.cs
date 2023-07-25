@@ -38,70 +38,74 @@ public class CharacterSkill : MonoBehaviour
     private void Update()
     {
         _monsters = GameObject.FindGameObjectsWithTag("Monster");
+        GameObject gameMenu = GameObject.FindGameObjectWithTag("InGameMenu");
+        bool isPaused = gameMenu.GetComponent<InGameMenu>().IsPaused;
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (!isPaused)
         {
-            if (_QCoolTime == 0)
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                foreach (GameObject monster in _monsters)
+                if (_QCoolTime == 0)
                 {
-                    monster.GetComponent<HealthPoint>().HP = 0;
-                    if (_particle != null)
-                        _particle.Play();
+                    foreach (GameObject monster in _monsters)
+                    {
+                        monster.GetComponent<HealthPoint>().HP = 0;
+                        if (_particle != null)
+                            _particle.Play();
+                    }
+                    _QCoolTime += Time.deltaTime;
                 }
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                if (_WCoolTime == 0)
+                {
+                    this.gameObject.GetComponent<HealthPoint>().HP = Mathf.Clamp(this.gameObject.GetComponent<HealthPoint>().MaxHP * 0.5f + this.gameObject.GetComponent<HealthPoint>().HP, 0, this.gameObject.GetComponent<HealthPoint>().MaxHP);
+                    _WCoolTime += Time.deltaTime;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                // TODO 스피드 증가 함수 제작
+                if (_ECoolTime == 0)
+                {
+                    _isE = true;
+                    _movement._runSpeed = _baseSpeed * 2f;
+                }
+            }
+
+            if (_isE)
+            {
+                _EDuration += Time.deltaTime;
+                if (_EDuration > _ETime)
+                {
+                    _isE = false;
+                    _movement._runSpeed = _baseSpeed;
+                    _EDuration = 0f;
+                    _ECoolTime += Time.deltaTime;
+                }
+            }
+
+            if (_QCoolTime != 0)
                 _QCoolTime += Time.deltaTime;
-            }
-        }
 
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            if(_WCoolTime == 0)
-            {
-                this.gameObject.GetComponent<HealthPoint>().HP = Mathf.Clamp(this.gameObject.GetComponent<HealthPoint>().MaxHP * 0.5f + this.gameObject.GetComponent<HealthPoint>().HP, 0, this.gameObject.GetComponent<HealthPoint>().MaxHP); 
+            if (_QCoolTime >= _QCoolTerm)
+                _QCoolTime = 0f;
+
+            if (_WCoolTime != 0)
                 _WCoolTime += Time.deltaTime;
-            }
-        }
 
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            // TODO 스피드 증가 함수 제작
-            if(_ECoolTime == 0)
-            {
-                _isE = true;
-                _movement._runSpeed = _baseSpeed * 2f;
-            }
-        }
+            if (_WCoolTime >= _WCoolTerm)
+                _WCoolTime = 0f;
 
-        if(_isE)
-        {
-            _EDuration += Time.deltaTime;
-            if(_EDuration > _ETime)
-            {
-                _isE = false;
-                _movement._runSpeed = _baseSpeed;
-                _EDuration = 0f;
+            if (_ECoolTime != 0)
                 _ECoolTime += Time.deltaTime;
-            }
+
+            if (_ECoolTime >= _ECoolTerm)
+                _ECoolTime = 0f;
         }
-
-        if(_QCoolTime != 0)
-            _QCoolTime += Time.deltaTime;
-
-        if (_QCoolTime >= _QCoolTerm)
-            _QCoolTime = 0f;
-
-        if(_WCoolTime != 0)
-            _WCoolTime += Time.deltaTime;
-
-        if (_WCoolTime >= _WCoolTerm)
-            _WCoolTime = 0f;
-
-        if(_ECoolTime != 0)
-            _ECoolTime += Time.deltaTime;
-
-        if (_ECoolTime >= _ECoolTerm)
-            _ECoolTime = 0f;
-
-
     }
 }
