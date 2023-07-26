@@ -49,13 +49,17 @@ public class SpawnManager : MonoBehaviour
 
     private int GetMonsterSpawnRange()
     {
-        if (_gamePlayTime <= 10.0f)
+        if (_gamePlayTime <= 20.0f)
         {
-            return 1; // 1~10초 동안은 Range(0, 0) 반환
+            return Random.Range(0,2); // 1~20초 동안은 Range(0, 1) 반환
+        }
+        else if (_gamePlayTime <= 40.0f)
+        {
+            return Random.Range(0, 3); // 20~40초 동안은 Range(0, 2) 반환
         }
         else
         {
-            return 2; // 10초 이후부터는 Range(0, 1) 반환
+            return Random.Range(0, 3); // 40초 이후부터는 Range(0, 3) 반환 (3 종류의 몬스터가 있으므로)
         }
     }
 
