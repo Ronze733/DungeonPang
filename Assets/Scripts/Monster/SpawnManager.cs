@@ -63,12 +63,12 @@ public class SpawnManager : MonoBehaviour
     {
         if (gameTime <= 10.0f)
         {
-            return 0.2f; // 1~10초 동안의 스폰 간격은 0.2초
+            return 1.0f; // 1~10초 동안의 스폰 간격은 0.2초
         }
         else
         {
             // 10초 이후의 스폰 간격을 조정하려면 이 값을 조절하면 됩니다.
-            return 1.0f; // 10초 이후부터는 1초에 한 번씩 스폰
+            return 0.2f; // 10초 이후부터는 1초에 한 번씩 스폰
         }
     }
 }    

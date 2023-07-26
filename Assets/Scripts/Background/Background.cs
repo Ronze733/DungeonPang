@@ -5,37 +5,29 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
-    void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Area"))
+        if (collision.CompareTag("Area"))
         {
-            return;
-        }
-        Debug.Log("Ground OnTriggerExit2D called!");
+                Debug.Log("asd");
 
-        Vector3 playerPos = GameManager.Instance.Player.transform.position;
-        Vector3 myPos = transform.position;
-        float diffX = Mathf.Abs(playerPos.x - myPos.x);
-        float diffY = Mathf.Abs(playerPos.y - myPos.y);
+            Vector3 playerPos = GameManager.Instance.Player.transform.position;
+            Vector3 myPos = transform.position;
+            float diffX = Mathf.Abs(playerPos.x - myPos.x);
+            float diffY = Mathf.Abs(playerPos.y - myPos.y);
 
-        Vector3 playerDir = GameManager.Instance.Player.transform.position - myPos;
-        float dirX = playerDir.x < 0 ? -1 : 1;
-        float dirY = playerDir.y < 0 ? -1 : 1;
+            Vector3 playerDir = GameManager.Instance.Player.transform.position - myPos;
+            float dirX = playerDir.x < 0 ? -1 : 1;
+            float dirY = playerDir.y < 0 ? -1 : 1;
 
-        switch (transform.tag)
-        {
-            case "Ground":
-                if (diffX > diffY)
-                {
-                    transform.Translate(Vector3.right * dirX * 40);
-                } else if (diffX < diffY)
-                {
-                    transform.Translate(Vector3.up * dirY * 40);
-                }
-                break;
-            case "Monster":
-
-                break;
+            if(diffX > diffY)
+            {
+                transform.Translate(Vector3.right * dirX * 40);
+            }
+            else if(diffX < diffY)
+            {
+                transform.Translate(Vector3.up * dirX * 40);
+            }
         }
 
     }
