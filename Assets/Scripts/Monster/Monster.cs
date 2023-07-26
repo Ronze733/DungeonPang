@@ -16,6 +16,9 @@ public class Monster : MonoBehaviour
     private GameObject _coin;
 
     [SerializeField]
+    private float _coinDropProbability = 80f;
+
+    [SerializeField]
     private GameObject _exp;
 
 
@@ -34,7 +37,7 @@ public class Monster : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (_isDead) return;
 
@@ -43,7 +46,10 @@ public class Monster : MonoBehaviour
             Dead();
             _isDead = true;
             StartCoroutine(DestroyAfterDelay(2f));
-            Instantiate(_coin, transform.position, Quaternion.identity);
+            if (Random.Range(0f, 100f) < _coinDropProbability)
+            {
+                Instantiate(_coin, transform.position, Quaternion.identity);
+            }
             Instantiate(_exp, transform.position, Quaternion.identity);
             return;
         }
