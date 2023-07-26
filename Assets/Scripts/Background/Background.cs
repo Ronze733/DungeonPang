@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
+    public float moveSpeed = 40f;
     private void OnTriggerExit2D(Collider2D collision)
     {
+
         if (collision.CompareTag("Area"))
         {
-                Debug.Log("asd");
-
             Vector3 playerPos = GameManager.Instance.Player.transform.position;
             Vector3 myPos = transform.position;
             float diffX = Mathf.Abs(playerPos.x - myPos.x);
@@ -20,13 +20,14 @@ public class Background : MonoBehaviour
             float dirX = playerDir.x < 0 ? -1 : 1;
             float dirY = playerDir.y < 0 ? -1 : 1;
 
+                Debug.Log("asd");
             if(diffX > diffY)
             {
-                transform.Translate(Vector3.right * dirX * 40);
+                transform.Translate(Vector3.right * dirX * moveSpeed * Time.deltaTime);
             }
             else if(diffX < diffY)
             {
-                transform.Translate(Vector3.up * dirX * 40);
+                transform.Translate(Vector3.up * dirY * moveSpeed * Time.deltaTime);
             }
         }
 
