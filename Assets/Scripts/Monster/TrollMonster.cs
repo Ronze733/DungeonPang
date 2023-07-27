@@ -58,10 +58,10 @@ public class TrollMonster : MonoBehaviour
         float distanceToPlayer = _dir.magnitude;
         if (_player != null)
         {
-            if (distanceToPlayer >= 1f)
-                this.gameObject.GetComponent<Animator>().SetBool("CanAttack", false);
-            else
+            if (_dir.magnitude < _attackRange)
                 this.gameObject.GetComponent<Animator>().SetBool("CanAttack", true);
+            else
+                this.gameObject.GetComponent<Animator>().SetBool("CanAttack", false);
         }
 
         if (_dir.x < 0)

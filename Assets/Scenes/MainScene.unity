@@ -211,14 +211,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Troll
       objectReference: {fileID: 0}
-    - target: {fileID: 22465386387153552, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 22465386387153552, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
-      propertyPath: m_TagString
-      value: Monster
-      objectReference: {fileID: 0}
     - target: {fileID: 5369226044824812711, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -263,10 +255,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5387952502051460282, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
+      propertyPath: m_Name
+      value: Attack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5387952502051460282, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1888708890}
   m_SourcePrefab: {fileID: 100100000, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
 --- !u!1 &169143248
 GameObject:
@@ -29309,6 +29308,56 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!1 &1888708888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5387952502051460282, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
+  m_PrefabInstance: {fileID: 93372284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1888708890
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888708888}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.13883138, y: 0.11333172}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.104679465, y: 0.20667806}
+  m_EdgeRadius: 0
 --- !u!213 &1891864696
 Sprite:
   m_ObjectHideFlags: 0
