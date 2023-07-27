@@ -20,9 +20,9 @@ public class Background : MonoBehaviour
             float dirX = playerDir.x < 0 ? -1 : 1;
             float dirY = playerDir.y < 0 ? -1 : 1;
 
-                Debug.Log("asd");
             if(diffX > diffY)
             {
+                Debug.Log("asd");
                 transform.Translate(Vector3.right * dirX * moveSpeed * Time.deltaTime);
             }
             else if(diffX < diffY)
