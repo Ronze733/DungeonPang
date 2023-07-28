@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrollMonster : MonoBehaviour
 {
     [SerializeField]
-    public Transform _player;
+    private GameObject _player;
 
 
     private HealthPoint _heathPoint;
@@ -19,11 +19,9 @@ public class TrollMonster : MonoBehaviour
     [SerializeField]
     private GameObject _exp;
 
+
     [SerializeField]
     private float _attackRange = 1f;
-
-    public float _atkCooltime;
-    public float _atkDelay;
 
     public float _speed;
     private Vector2 _dir;
@@ -33,7 +31,7 @@ public class TrollMonster : MonoBehaviour
     private void Start()
     {
         _heathPoint = this.GetComponent<HealthPoint>();
-        _player = GameObject.FindGameObjectWithTag("RealPlayer").transform;
+        _player = GameObject.FindGameObjectWithTag("RealPlayer");
     }
 
     // Update is called once per frame
@@ -55,7 +53,6 @@ public class TrollMonster : MonoBehaviour
         }
 
         _dir = _player.transform.position - this.transform.position;
-        float distanceToPlayer = _dir.magnitude;
         if (_player != null)
         {
             if (_dir.magnitude < _attackRange)
@@ -79,8 +76,7 @@ public class TrollMonster : MonoBehaviour
 
         this.gameObject.GetComponent<Animator>().SetFloat("Speed", speed);
 
-        if (_atkDelay >= 0)
-            _atkDelay -= Time.deltaTime;
+
 
 
     }
