@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class TrollMonster : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _player;
-
+    public Transform _player;
 
     private HealthPoint _heathPoint;
 
@@ -31,7 +29,7 @@ public class TrollMonster : MonoBehaviour
     private void Start()
     {
         _heathPoint = this.GetComponent<HealthPoint>();
-        _player = GameObject.FindGameObjectWithTag("RealPlayer");
+        _player = GameObject.FindGameObjectWithTag("RealPlayer").transform;
     }
 
     // Update is called once per frame
@@ -53,7 +51,7 @@ public class TrollMonster : MonoBehaviour
         }
 
         _dir = _player.transform.position - this.transform.position;
-/*
+        /*
         if (_player != null)
         {
             if (_dir.magnitude < _attackRange)
@@ -61,7 +59,7 @@ public class TrollMonster : MonoBehaviour
             else
                 this.gameObject.GetComponent<Animator>().SetBool("CanAttack", false);
         }
-*/
+        */
         if (_dir.x < 0)
             Turn(-1);
         else if (_dir.x > 0)
@@ -75,9 +73,7 @@ public class TrollMonster : MonoBehaviour
 
         transform.Translate(_dir.normalized * speed * Time.deltaTime);
 
-        this.gameObject.GetComponent<Animator>().SetFloat("Speed", speed);
-
-
+        this.gameObject.GetComponent<Animator>().SetFloat("Speed", _speed);
 
 
     }
