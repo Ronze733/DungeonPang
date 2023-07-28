@@ -6,7 +6,7 @@ public class ReadyState : StateMachineBehaviour
 {
     private Transform _monsterTransform;
     private TrollMonster _monster;
-    public float _attackRange = 3f;
+    public float _attackRange = 1f;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
