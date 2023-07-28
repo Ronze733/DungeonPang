@@ -53,6 +53,7 @@ public class TrollMonster : MonoBehaviour
         }
 
         _dir = _player.transform.position - this.transform.position;
+/*
         if (_player != null)
         {
             if (_dir.magnitude < _attackRange)
@@ -60,7 +61,7 @@ public class TrollMonster : MonoBehaviour
             else
                 this.gameObject.GetComponent<Animator>().SetBool("CanAttack", false);
         }
-
+*/
         if (_dir.x < 0)
             Turn(-1);
         else if (_dir.x > 0)
