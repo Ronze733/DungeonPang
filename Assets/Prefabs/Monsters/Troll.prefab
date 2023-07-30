@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 972121185390475435}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &-6113028291338952848
 Animator:
@@ -229,8 +229,6 @@ MonoBehaviour:
   _coinDropProbability: 80
   _exp: {fileID: 5858615880521141505, guid: 494c33e99f9d0124abc49f4799dcefdc, type: 3}
   _attackRange: 1
-  _atkCooltime: 1
-  _atkDelay: 2
   _speed: 2
 --- !u!1 &5387952502051460282
 GameObject:
