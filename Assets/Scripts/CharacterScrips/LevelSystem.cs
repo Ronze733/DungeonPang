@@ -23,6 +23,9 @@ public class LevelSystem : MonoBehaviour
 
     private CharacterWeapons _characterWeapons = null;
 
+    [SerializeField]
+    private GameObject _levelUpManager = null;
+
     private void Awake()
     {
         _healthPoint = this.GetComponent<HealthPoint>();
@@ -45,15 +48,10 @@ public class LevelSystem : MonoBehaviour
             _exp -= _maxExp;
             _maxExp += 3f;
             _level += 1;
-            SelectWeapon();
             _healthPoint.MaxHP += 10;
             _healthPoint.HP += 10;
+            _levelUpManager.GetComponent<LevelupManager>().LevelUp();
         }
-    }
-
-    private void SelectWeapon()
-    {
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

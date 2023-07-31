@@ -4,14 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InGameMenu : MonoBehaviour
+public class InGameMenu : UIManager
 {
     [SerializeField]
     private GameObject _inGameMenu = null;
-
-    private bool _isPaused = false;
-    public bool IsPaused
-    { get { return _isPaused; } }
 
     [SerializeField]
     private TextMeshProUGUI _exitButtonText;
