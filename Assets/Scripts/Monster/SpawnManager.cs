@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ public class SpawnManager : MonoBehaviour
     private float _timer;
     private float _gamePlayTime;
 
+    private bool _spawnedFourthMonster;
+
     private void Awake()
     {
         _spawnPoint = GetComponentsInChildren<Transform>();
@@ -22,6 +25,7 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         _gamePlayTime = 0.0f;
+        _spawnedFourthMonster = false;
     }
 
     private void Update()
@@ -41,25 +45,43 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void Spawn()
-    {
-        GameObject monster = GameManager.Instance.Pool.Get(Random.Range(0, GetMonsterSpawnRange()));
-        monster.transform.position = _spawnPoint[Random.Range(1, _spawnPoint.Length)].position;
-    }
-
     private int GetMonsterSpawnRange()
     {
-        if (_gamePlayTime <= 20.0f)
+        if (_gamePlayTime <= 10.0f)
         {
-            return 1; // 1~10초 동안은 Range(0, 0) 반환
+            return 1; // 1~10초 동안의 스폰 범위는 1 (1번째 몬스터만)
         }
-        else if(_gamePlayTime <=40.0f)
+        else if (_gamePlayTime <= 20.0f)
         {
-            return 2; // 10초 이후부터는 Range(0, 1) 반환
+            return 2; // 10~20초 동안의 스폰 범위는 2 (2번째 몬스터만)
         }
-        else 
-        { 
-            return 3;
+        else if (_gamePlayTime <= 30.0f)
+        {
+            return 3; // 20~30초 동안의 스폰 범위는 3 (3번째 몬스터만)
+        }
+        else
+        {
+            return 4; // 30초 이후의 스폰 범위는 4 (4번째 몬스터만)
+        }
+    }
+
+    private void Spawn()
+    {
+        if (_gamePlayTime <= 30.0f)
+        {
+            int monsterSpawnRange = GetMonsterSpawnRange();
+            GameObject monster = GameManager.Instance.Pool.Get(monsterSpawnRange - 1);
+            monster.transform.position = _spawnPoint[UnityEngine.Random.Range(1, _spawnPoint.Length)].position;
+        }
+        else
+        {
+            if (!_spawnedFourthMonster)
+            {
+                int spawnIndex = UnityEngine.Random.Range(1, _spawnPoint.Length);
+                GameObject monster = GameManager.Instance.Pool.Get(3); // 4번째 몬스터는 3번 인덱스에 해당
+                monster.transform.position = _spawnPoint[spawnIndex].position;
+                _spawnedFourthMonster = true;
+            }
         }
     }
 

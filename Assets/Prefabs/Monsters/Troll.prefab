@@ -31,13 +31,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22465386387153552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.7585244, y: -0.6269847, z: 0}
+  m_LocalPosition: {x: -14.178416, y: -2.098544, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 972121185390475435}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &-6113028291338952848
 Animator:
@@ -228,7 +228,7 @@ MonoBehaviour:
   _coin: {fileID: 8985733607201693227, guid: 9506b794347289a4eb52877b742fdea0, type: 3}
   _coinDropProbability: 80
   _exp: {fileID: 5858615880521141505, guid: 494c33e99f9d0124abc49f4799dcefdc, type: 3}
-  _attackRange: 1
+  _attackRange: 0
   _speed: 2
 --- !u!1 &5387952502051460282
 GameObject:
@@ -240,9 +240,11 @@ GameObject:
   m_Component:
   - component: {fileID: 972121185390475435}
   - component: {fileID: 3119541964998209423}
+  - component: {fileID: 9103194512262394496}
+  - component: {fileID: 840830262342587728}
   m_Layer: 6
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: TrollAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,7 +296,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13883138, y: 0.11333172}
+  m_Offset: {x: 0.16931638, y: 0.13441455}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -305,5 +307,31 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.104679465, y: 0.20667806}
+  m_Size: {x: 0.23314387, y: 0.24894363}
   m_EdgeRadius: 0
+--- !u!114 &9103194512262394496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387952502051460282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7eace8a9c7b5d4eaf3224921fdd03c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+--- !u!114 &840830262342587728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387952502051460282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3c6da55aa01bf4f950ced3e4402564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
