@@ -49,13 +49,17 @@ public class SpawnManager : MonoBehaviour
 
     private int GetMonsterSpawnRange()
     {
-        if (_gamePlayTime <= 10.0f)
+        if (_gamePlayTime <= 20.0f)
         {
             return 1; // 1~10초 동안은 Range(0, 0) 반환
         }
-        else
+        else if(_gamePlayTime <=40.0f)
         {
             return 2; // 10초 이후부터는 Range(0, 1) 반환
+        }
+        else 
+        { 
+            return 3;
         }
     }
 

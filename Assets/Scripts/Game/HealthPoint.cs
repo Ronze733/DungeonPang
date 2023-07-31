@@ -38,4 +38,12 @@ public class HealthPoint : MonoBehaviour
     {
         _healthPoint = Mathf.Clamp(_healthPoint - damage, 0, _maxHealthPoint);
     }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("TrollAttack"))
+        {
+            _character.GetComponent<Animator>().SetTrigger("Hit");
+        }
+    }
 }

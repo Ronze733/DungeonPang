@@ -16,6 +16,7 @@ TagManager:
   - XWall
   - YWall
   - Wall
+  - TrollAttack
   layers:
   - Default
   - TransparentFX
