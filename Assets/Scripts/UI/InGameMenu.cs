@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,9 @@ public class InGameMenu : UIManager
     [SerializeField]
     private TextMeshProUGUI _pointText;
 
+    [SerializeField]
+    private GameObject _levelup = null;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -27,7 +31,9 @@ public class InGameMenu : UIManager
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        bool isLevelUp = _levelup.activeSelf;
+
+        if (Input.GetKeyUp(KeyCode.Escape) && !isLevelUp)
         {
             if(_inGameMenu.activeSelf)
                 ResumeGame();
@@ -49,8 +55,9 @@ public class InGameMenu : UIManager
             Time.timeScale = 0.0f;
             float point = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelSystem>().Coin;
             int intPoint = Mathf.FloorToInt(point);
-            _pointText.text = "Point : " + intPoint;
+            _pointText.text = "Score : " + intPoint;
             _pointText.fontSize = 60.0f;
+            _pointText.enableWordWrapping = false;
         }
     }
 
