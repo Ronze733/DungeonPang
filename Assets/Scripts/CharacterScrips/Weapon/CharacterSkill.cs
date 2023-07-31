@@ -49,7 +49,8 @@ public class CharacterSkill : MonoBehaviour
                 {
                     foreach (GameObject monster in _monsters)
                     {
-                        monster.GetComponent<HealthPoint>().HP = 0;
+                        float monsterHp = monster.GetComponent<HealthPoint>().HP;
+                        monster.GetComponent<HealthPoint>().HP = Mathf.Clamp(monsterHp - 5, 0, monsterHp);
                         if (_particle != null)
                             _particle.Play();
                     }

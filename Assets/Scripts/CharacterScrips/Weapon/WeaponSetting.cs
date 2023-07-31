@@ -18,6 +18,12 @@ public abstract class WeaponSetting : MonoBehaviour
     [Range(1f, 6f)]
     protected int _weaponLevel = 1;
 
+    public int WeaponLevel
+    {
+        get { return _weaponLevel; }
+        set { _weaponLevel = value; }
+    }
+
     protected GameObject _characterOut;
 
     protected void Awake()
