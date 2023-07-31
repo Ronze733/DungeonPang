@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class TrollAttack : MonoBehaviour
 {
-    public Transform _player;
-    
+    [SerializeField]
+    public GameObject _player;
+
+    private void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
@@ -15,4 +21,6 @@ public class TrollAttack : MonoBehaviour
         }
 
     }
+
+
 }
