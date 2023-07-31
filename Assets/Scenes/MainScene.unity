@@ -28397,6 +28397,24 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!1 &1778534717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5387952502051460282, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
+  m_PrefabInstance: {fileID: 2000265346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1778534719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778534717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7eace8a9c7b5d4eaf3224921fdd03c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 2075141584}
 --- !u!213 &1789071544
 Sprite:
   m_ObjectHideFlags: 0
@@ -30302,13 +30320,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Troll
       objectReference: {fileID: 0}
+    - target: {fileID: 1138875357876290402, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119541964998209423, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
+      propertyPath: m_Size.x
+      value: 0.23314387
+      objectReference: {fileID: 0}
     - target: {fileID: 3119541964998209423, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
       propertyPath: m_Size.y
-      value: 0.10719777
+      value: 0.24894363
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119541964998209423, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.16931638
       objectReference: {fileID: 0}
     - target: {fileID: 3119541964998209423, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
       propertyPath: m_Offset.y
-      value: 0.06359157
+      value: 0.13441455
       objectReference: {fileID: 0}
     - target: {fileID: 5369226044824812711, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
       propertyPath: m_RootOrder
@@ -30365,7 +30395,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5387952502051460282, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1778534719}
   m_SourcePrefab: {fileID: 100100000, guid: 401b41bf0e385ad4684f6a7e489732d8, type: 3}
 --- !u!213 &2015529838
 Sprite:
