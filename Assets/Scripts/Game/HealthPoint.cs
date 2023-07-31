@@ -43,7 +43,7 @@ public class HealthPoint : MonoBehaviour
     {
         if (collision.transform.CompareTag("TrollAttack"))
         {
-            Hit(0);
+            _character.GetComponent<Animator>().SetTrigger("Hit");
         }
     }
 }
