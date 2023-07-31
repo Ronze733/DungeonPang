@@ -68,6 +68,8 @@ public class LevelSystem : MonoBehaviour
         {
             float coin = collision.GetComponent<Coin>().Value;
             _coin += (int)coin;
+
+            Destroy(collision.gameObject);
         }
     }
 }

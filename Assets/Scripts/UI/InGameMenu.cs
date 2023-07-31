@@ -13,6 +13,8 @@ public class InGameMenu : UIManager
     private TextMeshProUGUI _exitButtonText;
     [SerializeField]
     private TextMeshProUGUI _resumeButtonText;
+    [SerializeField]
+    private TextMeshProUGUI _pointText;
 
     // Start is called before the first frame update
     private void Start()
@@ -45,6 +47,10 @@ public class InGameMenu : UIManager
         {
             _isPaused = true;
             Time.timeScale = 0.0f;
+            float point = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelSystem>().Coin;
+            int intPoint = Mathf.FloorToInt(point);
+            _pointText.text = "Point : " + intPoint;
+            _pointText.fontSize = 60.0f;
         }
     }
 
