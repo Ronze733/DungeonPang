@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+    public Player _players;
 
     public static GameManager Instance
     {
