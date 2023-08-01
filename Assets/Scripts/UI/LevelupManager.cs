@@ -34,7 +34,6 @@ public class LevelupManager : UIManager
         _star.fontSize = _fontSize;
     }
 
-
     public void LevelUp()
     {
         int basicWeaponLevel = _character.GetComponentInChildren<BasicWeapon>().Level;
