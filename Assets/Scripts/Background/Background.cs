@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
-    public float moveSpeed = 40f;
     private void OnTriggerExit2D(Collider2D collision)
     {
 
@@ -20,16 +19,21 @@ public class Background : MonoBehaviour
             float dirX = playerDir.x < 0 ? -1 : 1;
             float dirY = playerDir.y < 0 ? -1 : 1;
 
-            if(diffX > diffY)
+            switch (transform.tag) {
+                case "Ground":
+            if (diffX > diffY)
             {
-                Debug.Log("asd");
-                transform.Translate(Vector3.right * dirX * moveSpeed * Time.deltaTime);
+            Debug.Log("asd");
+                transform.Translate(Vector3.right * dirX * 40);
             }
-            else if(diffX < diffY)
+            else if (diffX < diffY)
             {
-                transform.Translate(Vector3.up * dirY * moveSpeed * Time.deltaTime);
+                transform.Translate(Vector3.up * dirY * 40);
             }
+            break;
+        }
         }
 
     }
+
 }
