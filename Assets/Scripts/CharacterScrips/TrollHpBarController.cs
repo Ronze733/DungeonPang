@@ -27,8 +27,8 @@ public class TrollHpBarController : MonoBehaviour
 
         if (maxHp == nowHp)
         {
-            _maxHpBar.gameObject.SetActive(false);
-            _nowHpBar.gameObject.SetActive(false);
+            _maxHpBar.gameObject.SetActive(true);
+            _nowHpBar.gameObject.SetActive(true);
         }
 
         if (nowHp < maxHp)
