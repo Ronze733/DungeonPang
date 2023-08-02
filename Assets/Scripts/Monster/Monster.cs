@@ -45,6 +45,8 @@ public class Monster : MonoBehaviour
         {
             Dead();
             _isDead = true;
+            this.GetComponent<BoxCollider2D>().enabled = false;
+            this.GetComponent<Rigidbody2D>().simulated = false;
             StartCoroutine(DestroyAfterDelay(2f));
             if (Random.Range(0f, 100f) < _coinDropProbability)
             {
