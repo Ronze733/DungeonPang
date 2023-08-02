@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1710580712159159327}
   - component: {fileID: 9169253971655931897}
   - component: {fileID: 547495471939147773}
+  - component: {fileID: -2658360842050387683}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Monster
@@ -31,12 +32,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818414815134871513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.94, y: -0.014, z: 0}
+  m_LocalPosition: {x: -11.138061, y: -2.0915673, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4957334831965999443
 SpriteRenderer:
@@ -125,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _coin: {fileID: 8985733607201693227, guid: 9506b794347289a4eb52877b742fdea0, type: 3}
+  _coinDropProbability: 80
   _exp: {fileID: 5858615880521141505, guid: 494c33e99f9d0124abc49f4799dcefdc, type: 3}
   _attackRange: 0
   _speed: 2
@@ -227,4 +229,39 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!70 &-2658360842050387683
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818414815134871513}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.006641865, y: 0.08226366}
+  m_Size: {x: 0.21965155, y: 0.21965161}
+  m_Direction: 0
