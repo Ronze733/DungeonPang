@@ -47,15 +47,15 @@ public class SpawnManager : MonoBehaviour
 
     private int GetMonsterSpawnRange()
     {
-        if (_gamePlayTime <= 10.0f)
+        if (_gamePlayTime <= 120.0f)
         {
             return 1; // 1~10초 동안의 스폰 범위는 1 (1번째 몬스터만)
         }
-        else if (_gamePlayTime <= 20.0f)
+        else if (_gamePlayTime <= 240.0f)
         {
             return 2; // 10~20초 동안의 스폰 범위는 2 (2번째 몬스터만)
         }
-        else if (_gamePlayTime <= 30.0f)
+        else if (_gamePlayTime <= 480.0f)
         {
             return 3; // 20~30초 동안의 스폰 범위는 3 (3번째 몬스터만)
         }
@@ -67,7 +67,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Spawn()
     {
-        if (_gamePlayTime <= 30.0f)
+        if (_gamePlayTime <= 600.0f)
         {
             int monsterSpawnRange = GetMonsterSpawnRange();
             GameObject monster = GameManager.Instance.Pool.Get(monsterSpawnRange - 1);
