@@ -11,15 +11,39 @@ public class CharacterSkill : MonoBehaviour
 
     [SerializeField]
     private float _QCoolTerm = 20.0f;
+    public float QCoolTerm
+    {
+        get { return _QCoolTerm; }
+    }
     private float _QCoolTime = 0f;
+    public float QCoolTime
+    { 
+        get { return _QCoolTime; }
+    }
 
     [SerializeField]
     private float _WCoolTerm = 60.0f;
+    public float WCoolTerm
+    {
+        get { return _WCoolTerm; }
+    }
     private float _WCoolTime = 0f;
+    public float WCoolTime
+    {
+        get { return _WCoolTime; }
+    }
 
     [SerializeField]
     private float _ECoolTerm = 30.0f;
+    public float ECoolTerm
+    {
+        get { return _ECoolTerm; }
+    }
     private float _ECoolTime = 0f;
+    public float ECoolTime
+    {
+        get { return _ECoolTime; }
+    }
     [SerializeField]
     private float _ETime = 1.5f;
     private float _EDuration = 0f;
@@ -75,6 +99,7 @@ public class CharacterSkill : MonoBehaviour
                 {
                     _isE = true;
                     _movement._runSpeed = _baseSpeed * 2f;
+                    _ECoolTime += Time.deltaTime;
                 }
             }
 
@@ -86,7 +111,6 @@ public class CharacterSkill : MonoBehaviour
                     _isE = false;
                     _movement._runSpeed = _baseSpeed;
                     _EDuration = 0f;
-                    _ECoolTime += Time.deltaTime;
                 }
             }
 
