@@ -16,8 +16,11 @@ public class TrollAttack : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            float dmg = this.GetComponentInParent<Damage>().DamageValue;
-            _player.GetComponent<HealthPoint>().Hit(dmg);
+            if(this.GetComponentInParent<HealthPoint>().HP != 0)
+            {
+                float dmg = this.GetComponentInParent<Damage>().DamageValue;
+                _player.GetComponent<HealthPoint>().Hit(dmg);
+            }
         }
 
     }
