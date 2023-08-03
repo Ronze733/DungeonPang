@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3167802783825248671}
   m_Layer: 6
   m_Name: Troll
-  m_TagString: Monster
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

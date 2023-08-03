@@ -37,7 +37,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Monster")
+        if(collision.gameObject.tag == "Monster" || collision.gameObject.tag == "Boss")
         {
             HealthPoint monsterHP = collision.GetComponent<HealthPoint>();
 
