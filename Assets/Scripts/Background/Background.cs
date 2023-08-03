@@ -23,8 +23,8 @@ public class Background : MonoBehaviour
         float dirX = playerDir.x < 0 ? -1 : 1;
         float dirY = playerDir.y < 0 ? -1 : 1;
 
-        Debug.Log(dirX);
-        Debug.Log(dirY);
+        // Debug.Log(dirX);
+        // Debug.Log(dirY);
 
         if (diffX > diffY)
             transform.Translate(Vector3.right * dirX * 80);

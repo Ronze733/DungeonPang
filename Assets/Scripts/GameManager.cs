@@ -58,6 +58,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Vector3 pos = _gameTimeText.GetComponent<RectTransform>().anchoredPosition;
+        pos.y = -100;
+        _gameTimeText.GetComponent<RectTransform>().anchoredPosition = pos;
+
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
             _gameTime = 0.0f;
@@ -66,8 +70,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private IEnumerator GameOverScene(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        SceneManager.LoadScene("GameOverScene");
+    }
+
+    private IEnumerator GameClearScene(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        SceneManager.LoadScene("GameClearScene");
+    }
+
     private void Update()
     {
+        float playerHp = _player.GetComponent<HealthPoint>().HP;
+
+        if(playerHp <= 0)
+        {
+            StartCoroutine(GameOverScene(3f));
+        }
+
+        GameObject BossMonster = GameObject.FindGameObjectWithTag("Boss");
+        if(BossMonster != null)
+        {
+            float bossHp = BossMonster.GetComponent<HealthPoint>().HP;
+
+            if(bossHp <= 0) 
+            {
+                StartCoroutine(GameClearScene(3f));
+            }
+        }
+
+
         // 현재 Scene의 이름이 MainScene이면 Update 함수를 실행합니다.
         if (SceneManager.GetActiveScene().name == "MainScene")
         {

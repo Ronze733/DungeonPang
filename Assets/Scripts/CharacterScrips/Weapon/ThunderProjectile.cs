@@ -14,7 +14,7 @@ public class ThunderProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Monster")
+        if (collision.tag == "Monster" || collision.gameObject.tag == "Boss")
         {
             // 현재 오브젝트의 BoxCollider2D 컴포넌트 가져오기
             BoxCollider2D attackRangeCollider = GetComponent<BoxCollider2D>();
@@ -25,7 +25,7 @@ public class ThunderProjectile : MonoBehaviour
             // 찾은 몬스터들에게 데미지 입히기
             foreach (Collider2D monsterCollider in hitMonsters)
             {
-                if (monsterCollider.CompareTag("Monster"))
+                if (monsterCollider.CompareTag("Monster") || monsterCollider.CompareTag("Boss"))
                 {
                     monsterCollider.GetComponent<HealthPoint>().MonsterHit(_damage);
                 }
