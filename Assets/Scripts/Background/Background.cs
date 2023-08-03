@@ -18,12 +18,12 @@ public class Background : MonoBehaviour
             Vector3 playerDir = GameManager.Instance.Player.transform.position - myPos;
             float dirX = playerDir.x < 0 ? -1 : 1;
             float dirY = playerDir.y < 0 ? -1 : 1;
+            Debug.Log("asd");
 
             switch (transform.tag) {
                 case "Ground":
             if (diffX > diffY)
             {
-            Debug.Log("asd");
                 transform.Translate(Vector3.right * dirX * 40);
             }
             else if (diffX < diffY)

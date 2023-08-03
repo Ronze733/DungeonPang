@@ -16,7 +16,7 @@ public class Monster : MonoBehaviour
     private GameObject _coin;
 
     [SerializeField]
-    private float _coinDropProbability = 80f;
+    private float _coinDropProbability = 60f;
 
     [SerializeField]
     private GameObject _exp;
@@ -103,13 +103,6 @@ public class Monster : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if (!collision.CompareTag("BasicWeapon"))
-         //   return;
-
     }
 
 }
