@@ -7,6 +7,7 @@ public class AttackState : StateMachineBehaviour
     private Transform _monsterTransform;
     private TrollMonster _monster;
     public float _attackRange = 3f;
+    private float _originalSpeed;
     private CircleCollider2D _circleCollider;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -14,6 +15,10 @@ public class AttackState : StateMachineBehaviour
     {
         _monster = animator.GetComponent<TrollMonster>();
         _circleCollider = _monster.GetComponentInChildren<CircleCollider2D>();
+        _originalSpeed = _monster._speed;
+
+        _monster._speed = 0f;
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -28,6 +33,11 @@ public class AttackState : StateMachineBehaviour
     {
         if (_circleCollider != null)
             _circleCollider.enabled = false;
+
+        animator.SetBool("Back", true);
+
+        _monster._speed = _originalSpeed;
+
     }
 
     
