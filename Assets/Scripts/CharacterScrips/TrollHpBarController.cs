@@ -16,7 +16,7 @@ public class TrollHpBarController : MonoBehaviour
 
     private void Start()
     {
-        _hp = GameObject.FindGameObjectWithTag("Monster").GetComponent<HealthPoint>();
+        _hp = GameObject.FindGameObjectWithTag("Boss").GetComponent<HealthPoint>();
         _beforeHp = _hp.MaxHP;
     }
 
