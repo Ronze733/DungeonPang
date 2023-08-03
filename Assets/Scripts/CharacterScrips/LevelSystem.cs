@@ -51,6 +51,7 @@ public class LevelSystem : MonoBehaviour
             _healthPoint.MaxHP += 10;
             _healthPoint.HP += 10;
             _levelUpManager.GetComponent<LevelupManager>().LevelUp();
+        AudioManager._instance.PlaySfx(AudioManager.Sfx.Level);
         }
     }
 
@@ -62,6 +63,7 @@ public class LevelSystem : MonoBehaviour
             _exp += exp;
 
             Destroy(collision.gameObject);
+            AudioManager._instance.PlaySfx(AudioManager.Sfx.Exp);
         }
 
         if(collision.gameObject.tag == "Coin")
@@ -70,6 +72,7 @@ public class LevelSystem : MonoBehaviour
             _coin += (int)coin;
 
             Destroy(collision.gameObject);
+            AudioManager._instance.PlaySfx(AudioManager.Sfx.Coin);
         }
     }
 }
