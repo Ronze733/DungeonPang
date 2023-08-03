@@ -21,7 +21,7 @@ public class TrollMonster : MonoBehaviour
     [SerializeField]
     private float _attackRange = 1f;
 
-    public float _speed;
+    public float _speed = 5f;
     private Vector2 _dir;
 
     private bool _isDead = false;
@@ -30,6 +30,7 @@ public class TrollMonster : MonoBehaviour
     {
         _heathPoint = this.GetComponent<HealthPoint>();
         _player = GameObject.FindGameObjectWithTag("RealPlayer").transform;
+        StartCoroutine(ChangeSpeedAfterDelay(10f));
     }
 
     // Update is called once per frame
@@ -98,4 +99,14 @@ public class TrollMonster : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private IEnumerator ChangeSpeedAfterDelay(float delay)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            _speed = 15f;
+            yield return new WaitForSeconds(3f); // 3초 대기
+            _speed = 5f; // 다시 스피드를 3으로 변경
+        }
+    }
 }
