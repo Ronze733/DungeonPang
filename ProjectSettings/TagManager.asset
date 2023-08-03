@@ -17,8 +17,6 @@ TagManager:
   - YWall
   - Wall
   - TrollAttack
-  - Tilemap1
-  - Tilemap2
   layers:
   - Default
   - TransparentFX

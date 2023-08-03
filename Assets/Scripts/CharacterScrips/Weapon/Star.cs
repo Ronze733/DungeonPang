@@ -117,6 +117,7 @@ public class Star : WeaponSetting
             Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
 
             Destroy(Instantiate(_StarProjectile, pos, randomRotation), _aliveTime);
+            AudioManager._instance.PlaySfx(AudioManager.Sfx.Lazer);
         }
     }
 }

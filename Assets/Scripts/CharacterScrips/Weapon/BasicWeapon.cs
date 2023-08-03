@@ -84,6 +84,7 @@ public class BasicWeapon : MonoBehaviour
                     Instantiate(_projectile, this.transform.position, dir);
                 }
             }
+            AudioManager._instance.PlaySfx(AudioManager.Sfx.Arrow);
 
         }
 
