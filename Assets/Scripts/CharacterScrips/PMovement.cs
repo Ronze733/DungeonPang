@@ -32,6 +32,11 @@ public class PMovement : MonoBehaviour
 
     private HealthPoint _healthPoint;
 
+    private Vector2 _inputVec = Vector2.zero;
+    public Vector2 InputVec
+    {
+        get { return _inputVec; }
+    }
 
     private Vector3 _cameraPosition;
     private Vector3 _position;
@@ -172,23 +177,27 @@ public class PMovement : MonoBehaviour
         {
             collider.y += _runSpeed * Time.deltaTime;
             _position.y += _runSpeed * Time.deltaTime;
+            _inputVec.y = Input.GetAxis("Vertical");
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             collider.y -= _runSpeed * Time.deltaTime;
             _position.y -= _runSpeed * Time.deltaTime;
+            _inputVec.y = Input.GetAxis("Vertical");
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             collider.x -= _runSpeed * Time.deltaTime;
             _position.x -= _runSpeed * Time.deltaTime;
+            _inputVec.x = Input.GetAxis("Horizontal");
             Turn(-1);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             collider.x += _runSpeed * Time.deltaTime;
             _position.x += _runSpeed * Time.deltaTime;
+            _inputVec.x = Input.GetAxis("Horizontal");
             Turn(1);
         }
 
