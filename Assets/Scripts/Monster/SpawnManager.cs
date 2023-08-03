@@ -36,6 +36,15 @@ public class SpawnManager : MonoBehaviour
         _timer += Time.deltaTime;
         _gamePlayTime += Time.deltaTime;
 
+        if (_gamePlayTime >= 30.0f && _gamePlayTime % 30.0f <= Time.deltaTime)
+        {
+            int spawnCount = 50; // 동시에 스폰할 몬스터 개수
+            for (int i = 0; i < spawnCount; i++)
+            {
+                Spawn();
+            }
+        }
+
         float spawnInterval = GetSpawnInterval(_gamePlayTime);
 
         if (_timer > spawnInterval)
@@ -47,27 +56,27 @@ public class SpawnManager : MonoBehaviour
 
     private int GetMonsterSpawnRange()
     {
-        if (_gamePlayTime <= 10.0f)
+        if (_gamePlayTime <= 60.0f)
         {
-            return 1; // 1~10초 동안의 스폰 범위는 1 (1번째 몬스터만)
+            return 1; 
         }
-        else if (_gamePlayTime <= 20.0f)
+        else if (_gamePlayTime <= 120.0f)
         {
-            return 2; // 10~20초 동안의 스폰 범위는 2 (2번째 몬스터만)
+            return 2; 
         }
-        else if (_gamePlayTime <= 30.0f)
+        else if (_gamePlayTime <= 180.0f)
         {
-            return 3; // 20~30초 동안의 스폰 범위는 3 (3번째 몬스터만)
+            return 3;
         }
         else
         {
-            return 4; // 30초 이후의 스폰 범위는 4 (4번째 몬스터만)
+            return 4;
         }
     }
 
     private void Spawn()
     {
-        if (_gamePlayTime <= 30.0f)
+        if (_gamePlayTime <= 180.0f)
         {
             int monsterSpawnRange = GetMonsterSpawnRange();
             GameObject monster = GameManager.Instance.Pool.Get(monsterSpawnRange - 1);
@@ -87,15 +96,22 @@ public class SpawnManager : MonoBehaviour
 
     private float GetSpawnInterval(float gameTime)
     {
-        if (gameTime <= 10.0f)
-        {
-            return 1.0f; // 1~10초 동안의 스폰 간격은 0.2초
-        }
-        else
-        {
-            // 10초 이후의 스폰 간격을 조정하려면 이 값을 조절하면 됩니다.
-            return 0.2f; // 10초 이후부터는 1초에 한 번씩 스폰
-        }
+        if (gameTime <= 30.0f)
+    {
+        return 3.0f; // 0분부터 1분까지는 3초 간격
+    }
+    else if (gameTime <= 60.0f)
+    {
+        return 2.0f; // 1분부터 3분까지는 2초 간격
+    }
+    else if (gameTime <= 90.0f)
+    {
+        return 1.0f; // 3분부터 5분까지는 1초 간격
+    }
+    else
+    {
+        return 0.1f; // 5분 이후부터는 0.1초 간격
+    }
     }
 }    
 

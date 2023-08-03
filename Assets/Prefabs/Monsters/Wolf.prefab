@@ -129,7 +129,7 @@ MonoBehaviour:
   _coinDropProbability: 80
   _exp: {fileID: 5858615880521141505, guid: 494c33e99f9d0124abc49f4799dcefdc, type: 3}
   _attackRange: 0
-  _speed: 2
+  _speed: 6
 --- !u!114 &2279899229970647388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3c6da55aa01bf4f950ced3e4402564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 3
 --- !u!61 &9169253971655931897
 BoxCollider2D:
   m_ObjectHideFlags: 0

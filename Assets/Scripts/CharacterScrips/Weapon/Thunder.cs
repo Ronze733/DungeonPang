@@ -86,6 +86,7 @@ public class Thunder : WeaponSetting
 
             Destroy(Instantiate(_thunderProjectile, pos + dir, Quaternion.identity), _aliveTime);
         }
+        AudioManager._instance.PlaySfx(AudioManager.Sfx.Thunder);
     }
 
     
