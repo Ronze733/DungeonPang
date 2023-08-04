@@ -13,7 +13,7 @@ public class Arrow : MonoBehaviour
     }
 
     [SerializeField]
-    private float _speed = 5f;
+    private float _speed = 8f;
     public float Speed
     {
         get { return _speed; }
