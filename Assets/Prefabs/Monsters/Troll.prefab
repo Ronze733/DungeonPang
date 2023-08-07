@@ -17,8 +17,6 @@ GameObject:
   - component: {fileID: 7893240220756836777}
   - component: {fileID: 8188366774482783485}
   - component: {fileID: 3167802783825248671}
-  - component: {fileID: 640753962768100463}
-  - component: {fileID: -990711872371463231}
   m_Layer: 6
   m_Name: Troll
   m_TagString: Boss
@@ -272,31 +270,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.02985077, y: 0.1414179}
   m_Size: {x: 0.23313427, y: 0.31895536}
   m_Direction: 0
---- !u!114 &640753962768100463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22465386387153552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90d74b3f1acc19f4e94ac248cda2fefe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackRange: 3
---- !u!114 &-990711872371463231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22465386387153552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3d85efffcc5c714a8794a498efa0a90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &462895083450444894
 GameObject:
   m_ObjectHideFlags: 0
