@@ -23,12 +23,15 @@ public class BasicWeapon : MonoBehaviour
     private float _shootTerm = 2f;
     private float _shootTime = Mathf.Infinity;
 
+    [SerializeField]
+    private float _damage;
+
 
     // Start is called before the first frame update
     private void Awake()
     {
         _character = GameObject.FindGameObjectWithTag("Player");
-        _projectile.GetComponent<Arrow>().Damage = 3;
+        _projectile.GetComponent<Arrow>().Damage = _damage;
         _projectile.GetComponent<Arrow>().Speed = 5;
         _shootTerm = 2f;
     }

@@ -50,8 +50,9 @@ public class LevelSystem : MonoBehaviour
             _level += 1;
             _healthPoint.MaxHP += 10;
             _healthPoint.HP += 10;
+            _levelUpManager.GetComponent<LevelupManager>().State = 0;
             _levelUpManager.GetComponent<LevelupManager>().LevelUp();
-        AudioManager._instance.PlaySfx(AudioManager.Sfx.Level);
+            AudioManager._instance.PlaySfx(AudioManager.Sfx.Level);
         }
     }
 

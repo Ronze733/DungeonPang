@@ -18,11 +18,14 @@ public class Star : WeaponSetting
 
     private bool _beforeCan = false;
 
+    [SerializeField]
+    private float _damage;
+
 
     private void Start()
     {
         _coolTerm = _setCoolTerm;
-        _StarProjectile.GetComponent<StarProjectile>().Damage = 5f;
+        _StarProjectile.GetComponent<StarProjectile>().Damage = _damage;
         _beforeLevel = _weaponLevel;
         _beforeCan = _canWeapon;
     }
