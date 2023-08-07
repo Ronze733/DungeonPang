@@ -5,6 +5,10 @@ using UnityEngine;
 public class TrollMonster : MonoBehaviour
 {
     public Transform _player;
+    private Transform _monsterTransform;
+    private Transform _monster;
+
+    private Animator _animator;
 
     private HealthPoint _heathPoint;
 
@@ -19,7 +23,7 @@ public class TrollMonster : MonoBehaviour
 
 
     [SerializeField]
-    private float _attackRange = 1f;
+    private float _attackRange = 3f;
 
     public float _speed = 5f;
     private Vector2 _dir;
@@ -29,7 +33,10 @@ public class TrollMonster : MonoBehaviour
     private void Start()
     {
         _heathPoint = this.GetComponent<HealthPoint>();
+        _animator = GetComponent<Animator>();
         _player = GameObject.FindGameObjectWithTag("RealPlayer").transform;
+        _monster = this.transform;
+        _monsterTransform = _monster.transform;
         StartCoroutine(ChangeSpeedAfterDelay(10f));
     }
 
@@ -52,31 +59,42 @@ public class TrollMonster : MonoBehaviour
         }
 
         _dir = _player.transform.position - this.transform.position;
-        /*
-        if (_player != null)
-        {
-            if (_dir.magnitude < _attackRange)
-                this.gameObject.GetComponent<Animator>().SetBool("CanAttack", true);
-            else
-                this.gameObject.GetComponent<Animator>().SetBool("CanAttack", false);
-        }
-        */
+        
         if (_dir.x < 0)
             Turn(-1);
         else if (_dir.x > 0)
             Turn(1);
 
         float speed;
-        if (_dir.magnitude <= _attackRange)
-            speed = 0;
-        else
-            speed = _speed;
-
+        speed = _speed;
         transform.Translate(_dir.normalized * speed * Time.deltaTime);
 
-        this.gameObject.GetComponent<Animator>().SetFloat("Speed", _speed);
+        if (_monster != null && _player != null)
+        {
+            _animator.SetBool("IsFollow", true);
+            _animator.SetFloat("Speed", speed);
+        }
+        else
+        {
+            _animator.SetBool("IsFollow", false);
+            _animator.SetFloat("Speed", speed);
+        }
 
+        // Debug.Log(Vector2.Distance(_monster.position, _player.position));
 
+        float l = Vector2.Distance(_monster.position, _player.position);
+        Debug.Log(l);
+        if (l <= _attackRange)
+        {
+            Debug.Log(1);
+            _animator.SetBool("CanAttack", true);
+        }
+        else
+        {
+            Debug.Log(2);
+            _animator.SetBool("CanAttack", false);
+        }
+       
     }
 
     private void Dead()
