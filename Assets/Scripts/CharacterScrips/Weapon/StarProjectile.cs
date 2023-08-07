@@ -55,7 +55,7 @@ public class StarProjectile : MonoBehaviour
 
     private void Update()
     {
-
+        Debug.Log(_damage);
         Vector3 position = this.transform.position;
         _movement.z = 0f;
         position += _movement * Time.deltaTime;
