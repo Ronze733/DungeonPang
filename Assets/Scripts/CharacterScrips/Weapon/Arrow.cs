@@ -41,7 +41,7 @@ public class Arrow : MonoBehaviour
         {
             HealthPoint monsterHP = collision.GetComponent<HealthPoint>();
 
-            monsterHP.HP = Mathf.Clamp(monsterHP.HP - _damage, 0, monsterHP.HP);
+            monsterHP.MonsterHit(_damage);
         }
     }
 }
