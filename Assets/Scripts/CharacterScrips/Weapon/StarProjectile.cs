@@ -84,10 +84,7 @@ public class StarProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Monster" || collision.gameObject.tag == "Boss")
-        {
-            
             collision.GetComponent<HealthPoint>().MonsterHit(_damage);
-        }
         
         if (collision.tag == "XWall" && !_isXCollision)
         {
