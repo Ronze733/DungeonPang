@@ -64,13 +64,17 @@ public class SpawnManager : MonoBehaviour
         {
             return 2; 
         }
-        else if (_gamePlayTime <= 180.0f)
+        else if (_gamePlayTime <= 240.0f)
         {
             return 3;
         }
-        else
+        else if (_gamePlayTime <= 480.0f)
         {
             return 4;
+        }
+        else
+        {
+            return 5;
         }
     }
 
