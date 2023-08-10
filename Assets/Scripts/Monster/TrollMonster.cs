@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class TrollMonster : MonoBehaviour
@@ -30,6 +31,9 @@ public class TrollMonster : MonoBehaviour
 
     private bool _isDead = false;
 
+    [SerializeField]
+    private AnimatorControllerLayer layer;
+
     private void Start()
     {
         _heathPoint = this.GetComponent<HealthPoint>();
@@ -37,7 +41,7 @@ public class TrollMonster : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("RealPlayer").transform;
         _monster = this.transform;
         _monsterTransform = _monster.transform;
-        StartCoroutine(ChangeSpeedAfterDelay(10f));
+        //StartCoroutine(ChangeSpeedAfterDelay(10f));
     }
 
     // Update is called once per frame
@@ -65,6 +69,12 @@ public class TrollMonster : MonoBehaviour
         else if (_dir.x > 0)
             Turn(1);
 
+        AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+        string activeStateName = stateInfo.IsName("TrollMove") ? "TrollMove" : "TrollAtack";
+
+        if (string.Equals(activeStateName, "TrollMove"))
+            _speed = 3f;
+
         float speed;
         speed = _speed;
         transform.Translate(_dir.normalized * speed * Time.deltaTime);
@@ -80,21 +90,21 @@ public class TrollMonster : MonoBehaviour
             _animator.SetFloat("Speed", speed);
         }
 
-        // Debug.Log(Vector2.Distance(_monster.position, _player.position));
-
-        float l = Vector2.Distance(_monster.position, _player.position);
-        Debug.Log(l);
+        float l = Vector2.Distance(this.transform.position, _player.transform.position);
         if (l <= _attackRange)
         {
-            Debug.Log(1);
+            _animator.SetBool("IsFollow", false);
             _animator.SetBool("CanAttack", true);
+            _speed = 0f;
+
         }
         else
         {
-            Debug.Log(2);
             _animator.SetBool("CanAttack", false);
+            _animator.SetBool("IsFollow", true);
         }
-       
+
+        
     }
 
     private void Dead()
@@ -117,6 +127,7 @@ public class TrollMonster : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /*
     private IEnumerator ChangeSpeedAfterDelay(float delay)
     {
         while (true)
@@ -127,4 +138,5 @@ public class TrollMonster : MonoBehaviour
             _speed = 5f; // 다시 스피드를 3으로 변경
         }
     }
+    */
 }
