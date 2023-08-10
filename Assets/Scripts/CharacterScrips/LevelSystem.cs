@@ -14,6 +14,10 @@ public class LevelSystem : MonoBehaviour
     { get { return _maxExp; } }
 
     private int _level = 1;
+    public int Level
+    {
+        get { return _level; }
+    }
 
     private int _coin = 0;
     public int Coin

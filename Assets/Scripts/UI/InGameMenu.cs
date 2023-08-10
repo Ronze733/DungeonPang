@@ -53,9 +53,10 @@ public class InGameMenu : UIManager
         {
             _isPaused = true;
             Time.timeScale = 0.0f;
-            float point = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelSystem>().Coin;
-            int intPoint = Mathf.FloorToInt(point);
-            _pointText.text = "Score : " + intPoint;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameManager gameManager = GameManager.Instance;
+            float point = gameManager.NumberOfDeadMonster + player.GetComponent<LevelSystem>().Level + gameManager.GameTime;
+            _pointText.text = "Score : " + (int) point;
             _pointText.fontSize = 60.0f;
             _pointText.enableWordWrapping = false;
         }

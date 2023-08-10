@@ -21,6 +21,8 @@ public class CharacterSkill : MonoBehaviour
     { 
         get { return _QCoolTime; }
     }
+    [SerializeField]
+    private float _QDamage = 5f;
 
     [SerializeField]
     private float _WCoolTerm = 60.0f;
@@ -72,12 +74,16 @@ public class CharacterSkill : MonoBehaviour
             {
                 if (_QCoolTime == 0)
                 {
+                    int i = 0;
                     foreach (GameObject monster in _monsters)
                     {
+                        if (i >= 6)
+                            break;
                         float monsterHp = monster.GetComponent<HealthPoint>().HP;
-                        monster.GetComponent<HealthPoint>().HP = Mathf.Clamp(monsterHp - 5, 0, monsterHp);
+                        monster.GetComponent<HealthPoint>().HP = Mathf.Clamp(monsterHp - _QDamage, 0, monsterHp);
                         if (_particle != null)
                             _particle.Play();
+                        i++;
                     }
                     _QCoolTime += Time.deltaTime;
                 }
