@@ -42,7 +42,7 @@ Transform:
   - {fileID: 6063806935262665633}
   - {fileID: 5067097255051776519}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &-6113028291338952848
 Animator:
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83798d776081c7e47aaedd8ed7780ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealthPoint: 500
+  _maxHealthPoint: 1
   _healthPoint: 0
   _character: {fileID: 22465386387153552}
 --- !u!114 &3503306661951848959
@@ -233,7 +233,7 @@ MonoBehaviour:
   _coin: {fileID: 8985733607201693227, guid: 9506b794347289a4eb52877b742fdea0, type: 3}
   _coinDropProbability: 80
   _exp: {fileID: 5858615880521141505, guid: 494c33e99f9d0124abc49f4799dcefdc, type: 3}
-  _attackRange: 0
+  _attackRange: 3
   _speed: 3
 --- !u!70 &3167802783825248671
 CapsuleCollider2D:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3c6da55aa01bf4f950ced3e4402564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 5
 --- !u!1 &6034044731342241231
 GameObject:
   m_ObjectHideFlags: 0
