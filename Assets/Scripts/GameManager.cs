@@ -40,7 +40,12 @@ public class GameManager : MonoBehaviour
         get { return _player; }
     }
 
+    [SerializeField]
     private float _gameTime = 0.0f;
+    public float GameTime
+    {
+        get { return _gameTime; }
+    }
 
     [SerializeField]
     private TMP_Text _gameTimeText;
@@ -93,15 +98,9 @@ public class GameManager : MonoBehaviour
             StartCoroutine(GameOverScene(3f));
         }
 
-        GameObject BossMonster = GameObject.FindGameObjectWithTag("Boss");
-        if(BossMonster != null)
+        if(_gameTime >= 600f)
         {
-            float bossHp = BossMonster.GetComponent<HealthPoint>().HP;
-
-            if(bossHp <= 0) 
-            {
-                StartCoroutine(GameClearScene(3f));
-            }
+            StartCoroutine(GameClearScene(3f));
         }
 
 
