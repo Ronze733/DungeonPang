@@ -32,12 +32,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818414815134871513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.933308, y: -2.4501777, z: 0}
+  m_LocalPosition: {x: -8.97877, y: -0.6106541, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4957334831965999443
 SpriteRenderer:
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _coin: {fileID: 8985733607201693227, guid: 9506b794347289a4eb52877b742fdea0, type: 3}
-  _coinDropProbability: 80
+  _coinDropProbability: 0
   _exp: {fileID: 5858615880521141505, guid: 494c33e99f9d0124abc49f4799dcefdc, type: 3}
   _attackRange: 0
   _speed: 6
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83798d776081c7e47aaedd8ed7780ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealthPoint: 20
+  _maxHealthPoint: 60
   _healthPoint: 0
   _character: {fileID: 1818414815134871513}
 --- !u!114 &1710580712159159327
@@ -262,6 +262,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008019686, y: 0.083641455}
-  m_Size: {x: 0.156274, y: 0.15627417}
+  m_Offset: {x: 0.00551192, y: 0.083641455}
+  m_Size: {x: 0.18333721, y: 0.18333721}
   m_Direction: 0
