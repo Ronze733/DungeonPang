@@ -13,7 +13,6 @@ public class SpawnManager : MonoBehaviour
     private GameObject _character = null;
 
     private float _timer;
-    private float _gamePlayTime;
 
     private bool _spawnedFourthMonster;
 
@@ -24,7 +23,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        _gamePlayTime = 0.0f;
+        float gameTime = GameManager.Instance.GameTime;
         _spawnedFourthMonster = false;
     }
 
@@ -34,18 +33,19 @@ public class SpawnManager : MonoBehaviour
         this.transform.position = pos;
 
         _timer += Time.deltaTime;
-        _gamePlayTime += Time.deltaTime;
+        // GameManager.Instance.GameTime을 이용하여 게임 시간에 접근
+        float gameTime = GameManager.Instance.GameTime;
 
-        if (_gamePlayTime >= 30.0f && _gamePlayTime % 30.0f <= Time.deltaTime)
+        if (gameTime >= 30.0f && gameTime % 30.0f <= Time.deltaTime)
         {
-            int spawnCount = 50; // 동시에 스폰할 몬스터 개수
+            int spawnCount = 80; // 동시에 스폰할 몬스터 개수
             for (int i = 0; i < spawnCount; i++)
             {
                 Spawn();
             }
         }
 
-        float spawnInterval = GetSpawnInterval(_gamePlayTime);
+        float spawnInterval = GetSpawnInterval(gameTime);
 
         if (_timer > spawnInterval)
         {
@@ -56,36 +56,47 @@ public class SpawnManager : MonoBehaviour
 
     private int GetMonsterSpawnRange()
     {
-        if (_gamePlayTime <= 60.0f)
+        float gameTime = GameManager.Instance.GameTime;
+
+        if (gameTime <= 60.0f)
         {
             return 1; 
         }
-        else if (_gamePlayTime <= 120.0f)
+        else if (gameTime <= 120.0f)
         {
             return 2; 
         }
-        else if (_gamePlayTime <= 240.0f)
+        else if (gameTime <= 240.0f)
         {
             return 3;
         }
-        else if (_gamePlayTime <= 480.0f)
+        else if (gameTime <= 360.0f)
         {
             return 4;
         }
-        else
+        else if (gameTime <= 480.0f)
         {
             return 5;
+        }
+        else
+        {
+            return 6;
         }
     }
 
     private void Spawn()
     {
-        if (_gamePlayTime <= 180.0f)
+
+        float gameTime = GameManager.Instance.GameTime;
+
+
+        if (gameTime <= 600.0f)
         {
             int monsterSpawnRange = GetMonsterSpawnRange();
             GameObject monster = GameManager.Instance.Pool.Get(monsterSpawnRange - 1);
             monster.transform.position = _spawnPoint[UnityEngine.Random.Range(1, _spawnPoint.Length)].position;
         }
+        /*
         else
         {
             if (!_spawnedFourthMonster)
@@ -96,21 +107,22 @@ public class SpawnManager : MonoBehaviour
                 _spawnedFourthMonster = true;
             }
         }
+        */
     }
 
     private float GetSpawnInterval(float gameTime)
     {
-        if (gameTime <= 30.0f)
+        if (gameTime <= 60.0f)
     {
-        return 3.0f; // 0분부터 1분까지는 3초 간격
+        return 2.0f; // 0분부터 1분까지는 3초 간격
     }
-    else if (gameTime <= 60.0f)
+    else if (gameTime <= 240.0f)
     {
-        return 2.0f; // 1분부터 3분까지는 2초 간격
+        return 1.0f; // 1분부터 3분까지는 2초 간격
     }
-    else if (gameTime <= 90.0f)
+    else if (gameTime <= 360.0f)
     {
-        return 1.0f; // 3분부터 5분까지는 1초 간격
+        return 0.5f; // 3분부터 5분까지는 1초 간격
     }
     else
     {
