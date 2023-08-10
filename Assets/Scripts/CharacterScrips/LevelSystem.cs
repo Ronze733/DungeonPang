@@ -46,7 +46,7 @@ public class LevelSystem : MonoBehaviour
         if(_exp >= _maxExp)
         {
             _exp -= _maxExp;
-            _maxExp += 3f;
+            _maxExp *= 1.5f;
             _level += 1;
             _healthPoint.MaxHP += 10;
             _healthPoint.HP += 10;
