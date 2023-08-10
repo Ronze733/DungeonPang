@@ -45,6 +45,8 @@ public class Monster : MonoBehaviour
         {
             Dead();
             _isDead = true;
+            GameManager gameManager = GameManager.Instance;
+            gameManager.NumberOfDeadMonster++;
             this.GetComponent<BoxCollider2D>().enabled = false;
             this.GetComponent<Rigidbody2D>().simulated = false;
             StartCoroutine(DestroyAfterDelay(2f));

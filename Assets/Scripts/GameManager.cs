@@ -50,10 +50,21 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _gameTimeText;
 
+    [SerializeField]
+    private TMP_Text _deadMonsterText;
+
     private LevelSystem _levelSystem = null;
 
     [SerializeField]
     private Image _expBar;
+
+    private int _numberOfDeadMonster = 0;
+
+    public int NumberOfDeadMonster
+    {
+        get { return _numberOfDeadMonster; }
+        set { _numberOfDeadMonster = value; }
+    }
 
     private void Awake()
     {
@@ -63,9 +74,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _numberOfDeadMonster = 0;
         Vector3 pos = _gameTimeText.GetComponent<RectTransform>().anchoredPosition;
         pos.y = -100;
+        pos.x = 0;
         _gameTimeText.GetComponent<RectTransform>().anchoredPosition = pos;
+
+        pos = _deadMonsterText.GetComponent<RectTransform>().anchoredPosition;
+        pos.x = -186;
+        pos.y = -114;
+        _deadMonsterText.GetComponent<RectTransform>().anchoredPosition = pos;
 
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
@@ -110,6 +128,7 @@ public class GameManager : MonoBehaviour
             // Update 함수 내용을 여기에 작성합니다.
             ShowTime();
             UpdateExpBar();
+            ShowNumberOfDeadMonsters();
         }
     }
 
@@ -122,6 +141,12 @@ public class GameManager : MonoBehaviour
         string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         _gameTimeText.text = timeText;
+    }
+
+    private void ShowNumberOfDeadMonsters()
+    {
+        string deadMonsterText = _numberOfDeadMonster + "";
+        _deadMonsterText.text = deadMonsterText;
     }
 
     private void UpdateExpBar()
