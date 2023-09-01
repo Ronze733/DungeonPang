@@ -80,7 +80,7 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
-            return 6;
+            return 5;
         }
     }
 
@@ -96,18 +96,7 @@ public class SpawnManager : MonoBehaviour
             GameObject monster = GameManager.Instance.Pool.Get(monsterSpawnRange - 1);
             monster.transform.position = _spawnPoint[UnityEngine.Random.Range(1, _spawnPoint.Length)].position;
         }
-        /*
-        else
-        {
-            if (!_spawnedFourthMonster)
-            {
-                int spawnIndex = UnityEngine.Random.Range(1, _spawnPoint.Length);
-                GameObject monster = GameManager.Instance.Pool.Get(3); // 4번째 몬스터는 3번 인덱스에 해당
-                monster.transform.position = _spawnPoint[spawnIndex].position;
-                _spawnedFourthMonster = true;
-            }
-        }
-        */
+       
     }
 
     private float GetSpawnInterval(float gameTime)
