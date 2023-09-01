@@ -3,15 +3,29 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Monster
+  - Weapon
+  - RealPlayer
+  - BasicWeapon
+  - Coin
+  - Exp
+  - Ground
+  - Area
+  - InGameMenu
+  - XWall
+  - YWall
+  - Wall
+  - TrollAttack
+  - Boss
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Monster
   - 
   - 
   - 
