@@ -12,6 +12,8 @@ public class PlayButton : ButtonController
         RectTransform buttonRect = this.GetComponent<RectTransform>();
 
         Vector3 newPosition = new Vector3(0f, -240f, 0f);
-        buttonRect.position = newPosition;
+        buttonRect.localPosition = newPosition;
+
+        buttonRect.pivot = new Vector2(0.5f, 0.5f);
     }
 }

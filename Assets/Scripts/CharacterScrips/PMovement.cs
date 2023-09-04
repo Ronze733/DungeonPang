@@ -2,6 +2,7 @@ using Assets.PixelHeroes.Scripts.CharacterScrips;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState;
 
@@ -80,6 +81,21 @@ public class PMovement : MonoBehaviour
             _character.Animator.SetBool("Running", false);
             _character.Animator.SetBool("Dead", true);
             return;
+        }
+
+        if(Input.GetKey(KeyCode.Z))
+        {
+            // 태그가 "monster", "boss", "Exp"인 모든 오브젝트를 배열에 저장합니다.
+            GameObject[] objectsToDelete = GameObject.FindGameObjectsWithTag("Monster");
+            objectsToDelete = objectsToDelete.Concat(GameObject.FindGameObjectsWithTag("Boss")).ToArray();
+            objectsToDelete = objectsToDelete.Concat(GameObject.FindGameObjectsWithTag("Exp")).ToArray();
+
+            // 배열에 저장된 모든 오브젝트를 삭제합니다.
+            foreach (GameObject obj in objectsToDelete)
+            {
+                Destroy(obj);
+            }
+            GameManager.Instance.GameTime = 600f;
         }
 
 

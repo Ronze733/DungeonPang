@@ -74,16 +74,18 @@ public class CharacterSkill : MonoBehaviour
             {
                 if (_QCoolTime == 0)
                 {
-                    int i = 0;
+                    // int i = 0;
                     foreach (GameObject monster in _monsters)
                     {
+                        /*
                         if (i >= 6)
                             break;
+                        */
                         float monsterHp = monster.GetComponent<HealthPoint>().HP;
                         monster.GetComponent<HealthPoint>().HP = Mathf.Clamp(monsterHp - _QDamage, 0, monsterHp);
                         if (_particle != null)
                             _particle.Play();
-                        i++;
+                        // i++;
                     }
                     _QCoolTime += Time.deltaTime;
                 }

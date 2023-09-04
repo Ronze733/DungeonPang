@@ -11,7 +11,9 @@ public class GameExitButton : ButtonController
         RectTransform buttonRect = this.GetComponent<RectTransform>();
 
         Vector3 newPosition = new Vector3(0f, -350f, 0f);
-        buttonRect.position = newPosition;
+        buttonRect.localPosition = newPosition;
+
+        buttonRect.pivot = new Vector2(0.5f, 0.5f);
     }
 
     public void GameExit()

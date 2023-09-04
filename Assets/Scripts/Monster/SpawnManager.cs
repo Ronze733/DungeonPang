@@ -12,6 +12,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject _character = null;
 
+    [SerializeField]
+    private int _spawnCount = 0;
+
     private float _timer;
 
     // private bool _spawnedFourthMonster;
@@ -38,7 +41,7 @@ public class SpawnManager : MonoBehaviour
 
         if (gameTime >= 30.0f && gameTime % 30.0f <= Time.deltaTime)
         {
-            int spawnCount = 80; // 동시에 스폰할 몬스터 개수
+            int spawnCount = _spawnCount; // 동시에 스폰할 몬스터 개수
             for (int i = 0; i < spawnCount; i++)
             {
                 Spawn();

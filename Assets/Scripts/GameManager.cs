@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public float GameTime
     {
         get { return _gameTime; }
+        set { _gameTime = value; }
     }
 
     [SerializeField]
