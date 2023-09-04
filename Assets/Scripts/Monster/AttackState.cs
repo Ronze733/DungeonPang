@@ -10,7 +10,7 @@ public class AttackState : MonoBehaviour
     public float _attackRange = 3f;
     private float _originalSpeed;
     private CircleCollider2D _circleCollider;
-    private bool _isAttack = false;
+    // private bool _isAttack = false;
     /*
     public bool IsAttack
     {

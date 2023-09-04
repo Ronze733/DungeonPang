@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour
 
     private float _timer;
 
-    private bool _spawnedFourthMonster;
+    // private bool _spawnedFourthMonster;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         float gameTime = GameManager.Instance.GameTime;
-        _spawnedFourthMonster = false;
+        // _spawnedFourthMonster = false;
     }
 
     private void Update()

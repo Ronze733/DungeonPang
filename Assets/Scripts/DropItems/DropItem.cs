@@ -13,7 +13,7 @@ public abstract class DropItem : MonoBehaviour
     protected Vector2 _stoppedPosition;
 
     // 아이템 가치
-    private float _value = 1f;
+    protected float _value = 1f;
 
     public float Value
     {

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class TrollMonster : MonoBehaviour
@@ -30,9 +29,6 @@ public class TrollMonster : MonoBehaviour
     private Vector2 _dir;
 
     private bool _isDead = false;
-
-    [SerializeField]
-    private AnimatorControllerLayer layer;
 
     private void Start()
     {
