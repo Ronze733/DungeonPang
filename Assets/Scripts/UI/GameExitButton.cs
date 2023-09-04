@@ -8,6 +8,10 @@ public class GameExitButton : ButtonController
     private void Start()
     {
         ChangeButtonText("GameExit");
+        RectTransform buttonRect = this.GetComponent<RectTransform>();
+
+        Vector3 newPosition = new Vector3(0f, -350f, 0f);
+        buttonRect.position = newPosition;
     }
 
     public void GameExit()
